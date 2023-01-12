@@ -2,3 +2,9 @@
 @import 'partials/mixins';
 @import 'partials/general';
 @import 'partials/sections';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

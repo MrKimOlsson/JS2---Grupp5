@@ -1,0 +1,10 @@
+main {
+    @include flex(column, center, center);
+    @include size(100vw, 100vh);
+    
+    .conact-form-wrap {
+        @include flex(column, center, center);
+        @include size(40vw, 55vh);
+        @include contact-from;
+    }
+}
