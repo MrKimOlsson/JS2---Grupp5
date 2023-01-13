@@ -1,0 +1,72 @@
+//  ___________________________________________________General _________________________________________________
+
+$body-bg:  rgb(230, 230, 230);
+
+//  ___________________________________________________Header __________________________________________________
+
+$down-header: rgb(255, 255, 255);
+$up-header: rgb(40, 49, 148);
+$up-header-a: white;
+$down-navbar-a: black;
+
+//  ___________________________________________________Footer _________________________________________________
+
+$footer-bg: rgb(17, 26, 91);
+$footer-text: white;
+$upper-footer-ul-a: white;
+$box-whole-box-border: rgb(147, 143, 143);
+$footer-underlink-a: white;
+
+//  ___________________________________________________Home ___________________________________________________
+
+$background-image-one: linear-gradient(rgba(228, 222, 222, 0.065), rgba(255, 255, 255, 0.5)), url('/images/vvs.png');
+$background-h2-color: white;
+$background-h2-shadow: 3px 3px 3px black;
+
+$content-row-one-bg: white;
+$row-one-box-border-right: 1px solid black;
+
+$row-one-box-image-background-image: url(/images/plumbthree.avif);
+
+$content-row-two-bg: rgb(53, 176, 233);
+
+$box-row-h4: white;
+$box-row-p: white;
+$box-row-fa: rgb(58, 235, 58);
+
+$box-row-card-bg: rgb(253, 245, 245);
+$box-row-card-border: 1px solid rgb(64, 63, 63);
+$box-row-card-shadow: 1px 1px 3px rgb(64, 63, 63);
+$box-row-card-h4-shadow: 2px 2px 3px black;
+$box-row-card-h4-color: white;
+$box-row-card-input-border: 1px solid gray;
+$box-row-card-input-button-bg: rgb(62, 62, 62);
+$box-row-card-input-button-color: white;
+$box-row-card-input-button-border: 1px solid black;
+$box-row-card-input-button-shadow: 3px 3px 3px;
+
+// ___________________________________________________About __________________________________________________
+
+
+//  _________________________________________________Contact _________________________________________________
+
+
+//  _________________________________________________Support _________________________________________________
+
+$input-group: rgb(245, 245, 245);
+$conact-form-wrap-bg:#fff;
+$conact-form-wrap-border:#d8d8d8;
+$box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+$box-shadow-inset: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+$form-border: 1px solid #d8d8d8;
+$btn-primary: hsl(202, 95%, 46%);
+$btn-primary-hover: hsl(202, 95%, 51%);
+$btn-primary-active: hsl(202, 95%, 41%);
+$btn-primary-text: #fff;
+
+//  _________________________________________________Errands _________________________________________________
+
+$card-bg: #fff;
+$errand-card: rgb(255, 255, 255);
+$errand-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+$details-bg: white;

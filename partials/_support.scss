@@ -1,0 +1,107 @@
+// FORM
+.conact-form-wrap {
+    @include flex(column, center, none);
+    max-width: 40em;
+    min-height: 35em;
+    max-height: 35em;
+    box-shadow: $box-shadow;
+    background-color: $conact-form-wrap-bg;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid $conact-form-wrap-border;
+    height: 100%;
+    width: 50%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+
+    .form-content {
+        @include size(100%, 100%);
+    }
+
+    input, textarea {
+        font-size: 0.8rem;
+    }
+
+    .input-group-wrap {
+        @include flex(row, space-between, center);
+    }
+    
+    .input-group {
+        margin-bottom: 1rem;
+        width: 49%;
+
+        label {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+    }
+
+    .input-group2 {
+        margin-bottom: 1rem;
+        width: 100%;
+        
+    }
+
+    .input-group3 {
+        @include flex(row, flex-start, center);
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .radio-text, .terms-text {
+        padding-left: 0.25rem;
+    }
+
+    .input-label {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: $form-border;
+        background-color: $input-group;
+        box-shadow: $box-shadow-inset;
+    }
+
+    .form-control2 {
+        @include size(100%, 10vh);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: $form-border;
+        background-color: $input-group;
+        box-shadow: $box-shadow-inset;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 0.8em 1.4em;
+        border-radius: 0.5rem;
+        border: 0;
+        outline: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: $btn-primary;
+        color: $btn-primary-text;
+        transition: background 70ms;
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+        background-color: $btn-primary-hover;
+    }
+
+    .btn-primary:active {
+        background-color: $btn-primary-active;
+    }
+
+    h2{
+        margin-bottom: 1rem;
+    }
+}
