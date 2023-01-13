@@ -1,15 +1,19 @@
 footer {
+  position: relative;
+  bottom:0;
   height: auto;
-  width: auto;
-  background-color: rgb(17, 26, 91);
+  width: 100%;
+  height: 100%;
+  background-color: $footer-bg;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
+  color: $footer-text;
 
   .upper-footer {
     height: 12rem;
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
 
@@ -26,7 +30,7 @@ footer {
 
         a {
           text-decoration: none;
-          color: white;
+          color: $upper-footer-ul-a;
 
           &:hover {
             text-decoration: underline;
@@ -36,13 +40,16 @@ footer {
     }
   }
 
+  .footer-nav {
+    height: 100%;
+
+  }
+
   .down-footer {
     height: 3rem;
     width: 100%;
     display: flex;
     justify-content: center;
-
-
   }
 
   .box-copywrite {
@@ -54,8 +61,7 @@ footer {
     width: 80%;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid rgb(147, 143, 143);
-
+    border-top: 1px solid $box-whole-box-border;
   }
 
   .footer-underlink {
@@ -71,7 +77,7 @@ footer {
 
         a {
           text-decoration: none;
-          color: white;
+          color: $footer-underlink-a;
 
           &:hover {
             text-decoration: underline;
