@@ -5,52 +5,284 @@
 }
 
 body {
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.container {
+footer {
+  height: auto;
+  width: auto;
+  background-color: rgb(17, 26, 91);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+footer .upper-footer {
+  height: 12rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+footer .upper-footer .box-whole {
+  width: 75%;
+  margin: 1rem;
+}
+footer .upper-footer ul li {
+  list-style: none;
+  margin-top: 1rem;
+}
+footer .upper-footer ul li a {
+  text-decoration: none;
+  color: white;
+}
+footer .upper-footer ul li a:hover {
+  text-decoration: underline;
+}
+footer .down-footer {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+footer .box-copywrite {
+  margin-top: 0.5rem;
+}
+footer .box-whole-box {
+  height: 3rem;
   width: 80%;
-  margin: 3rem auto;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(147, 143, 143);
+}
+footer .footer-underlink {
+  margin-top: 0.5rem;
+}
+footer .footer-underlink ul {
+  display: flex;
+  flex-direction: row;
+}
+footer .footer-underlink ul li {
+  list-style: none;
+  margin-left: 0.8rem;
+}
+footer .footer-underlink ul li a {
+  text-decoration: none;
+  color: white;
+}
+footer .footer-underlink ul li a:hover {
+  text-decoration: underline;
 }
 
-.errand {
-  background-color: #fff;
-  margin-block: 1rem;
-  padding: 1rem;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
+header {
+  width: 100%;
 }
-
-.errand h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+header .up-header {
+  width: 100%;
+  height: 2.5rem;
+  background-color: rgb(40, 49, 148);
 }
-
-.errand p {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
+header .up-header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 8rem;
 }
-
-.errand_subject {
+header .up-header ul li {
+  list-style: none;
+  margin-left: 4rem;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+header .up-header ul li a {
+  text-decoration: none;
+  color: white;
+}
+header .up-header ul li a:hover {
+  text-decoration: underline;
+}
+header .down-header {
+  width: 100%;
+  height: 6rem;
+  background-color: rgb(255, 251, 251);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+header .down-header .company-name {
+  width: auto;
+  height: auto;
+}
+header .down-header .company-name h1 {
   font-size: 3rem;
-  font-weight: bold;
+  margin-top: 1rem;
+}
+header .down-header .down-navbar {
+  width: 20rem;
+}
+header .down-header .down-navbar ul {
+  display: flex;
+  flex-direction: row;
+}
+header .down-header .down-navbar ul li {
+  list-style: none;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  align-self: center;
+  display: inline;
+  padding-left: 2rem;
+}
+header .down-header .down-navbar ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+header .down-header .down-navbar ul li a:hover {
+  text-decoration: underline;
 }
 
-.errand_message,
-.errand_email {
-  font-size: 0.7em;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.errand_name,
-.errand_message,
-.errand_email {
-  pointer-events: none;
+.main-page {
+  height: 100%;
+  width: 100%;
 }
 
-.details {
-  width: 80%;
-  height: 60vh;
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  background-image: linear-gradient(rgba(228, 222, 222, 0.065), rgba(255, 255, 255, 0.5)), url("/images/vvs.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 30rem;
+}
+.background h2 {
+  font-size: 4.5em;
+  text-align: center;
+  padding-top: 10rem;
+  color: white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.content-row-one {
+  height: auto;
+  width: 100%;
   background-color: white;
-  z-index: 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+}
+.content-row-one .row-one-box {
+  width: 48%;
+  height: 34rem;
+  align-self: center;
+  border-right: 1px solid black;
+  margin-top: 1rem;
+  padding-right: 1rem;
+}
+.content-row-one .row-one-box h4 {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+.content-row-one .row-one-box p {
+  padding-top: 2rem;
+}
+.content-row-one .row-one-box:last-of-type {
+  border: none;
+}
+.content-row-one .row-one-box-image {
+  width: 48%;
+  height: 38rem;
+  background-image: url(/images/plumbthree.avif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 1.5rem;
+}
+
+.content-row-two {
+  height: 45rem;
+  background-color: rgb(53, 176, 233);
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.content-row-two .row-two-box {
+  width: 80%;
+  height: 38rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.content-row-two .row-two-box .box-row {
+  width: 48%;
+  height: 100%;
+}
+.content-row-two .row-two-box .box-row h4 {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+}
+.content-row-two .row-two-box .box-row p {
+  font-size: 3rem;
+  color: white;
+  margin-top: 2rem;
+  text-align: center;
+}
+.content-row-two .row-two-box .box-row .fa-solid {
+  color: rgb(58, 235, 58);
+}
+.content-row-two .row-two-box .box-row-card {
+  width: 35%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: rgb(253, 245, 245);
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgb(64, 63, 63);
+  display: flex;
+  flex-direction: column;
+}
+.content-row-two .row-two-box .box-row-card h4 {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 0.7rem;
+  font-weight: 400;
+  text-shadow: 3px 3px 3px black;
+  color: white;
+}
+.content-row-two .row-two-box .box-row-card p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 1.3rem;
+}
+.content-row-two .row-two-box .box-row-card input {
+  width: 80%;
+  height: 3rem;
+  align-self: center;
+  margin-top: 3rem;
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-size: 1.5rem;
+}
+.content-row-two .row-two-box .box-row-card button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 20px;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px;
+  background-color: rgb(62, 62, 62);
+  align-self: center;
+  margin-top: 2rem;
+  color: white;
+  font-size: 1rem;
 }/*# sourceMappingURL=main.css.map */
