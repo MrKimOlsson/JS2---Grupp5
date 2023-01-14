@@ -5,6 +5,9 @@ const errands = []
 const errandList = document.querySelector('#output')
 const container = document.querySelector('#container')
 const details = document.querySelector('#details');
+// const closeDetails = document.querySelector('.btnCloseDetails');
+// const closeDetails = document.querySelector('.btnCloseDetails');
+
 // __________________________________________
 
 // Fetch data based on ID
@@ -18,18 +21,48 @@ const getData = async (id) => {
             throw new Error(res.statusText)
         }
         const data = await res.json();
+        console.log('Got clicked errand:')
         console.log(data);
-
+        
         // Clear DOM
         output.innerHTML = "";
 
-        // Status color
+        //  Create elements
         let details = document.createElement('div')
         details.classList.add('details')
+
+        // Status color
         let statusColor = document.createElement('div')
         statusColor.classList.add('statusColor')
+
+        // Status not started
+        let statusNotStarted = document.createElement('INPUT')
+        statusNotStarted.setAttribute("type", "radio");
+        statusNotStarted.classList.add('statusNotStarted')
+
+        // Status pending
+        let statusPending = document.createElement('INPUT')
+        statusPending.setAttribute("type", "radio");
+        statusPending.classList.add('statusPending')
+
+        // Status done
+        let statusDone = document.createElement('INPUT')
+        statusDone.setAttribute("type", "radio");
+        statusDone.classList.add('statusDone')
+
+        // Comment
+        let comment = document.createElement('INPUT')
+        comment.setAttribute("type", "text", "rows=", "5");
+        comment.classList.add('comment')
+
+        // Close button
+        let btnCloseDetails = document.createElement('button')
+        btnCloseDetails.classList.add('btnCloseDetails')
+
+        console.log("Errand status ID:")
         console.log(data.status.id)
 
+         // Status color
         // If errand status is "done"
         if(data.status.id == 3) {
           statusColor.classList.add('green')
@@ -43,28 +76,64 @@ const getData = async (id) => {
           statusColor.classList.add('red')
         }
         output.appendChild(details)
+        
 
         // If no comment and not modified
         if(data.comment == undefined && data.modified == data.created) {
           details.innerHTML += `
-                <h3>Subject: ${data.subject}</h3>
-                <p>Message: ${data.message}</p>
-                <p>Email: ${data.email}</p><br>
-                <p>Created: ${data.created}</p>
-                <p>Status: ${data.status.statusName}</p>
-            
+                
+              <h3>Subject: ${data.subject}</h3>
+              <p><b>Message:</b> ${data.message}</p><br>
+              <p><b>Email:</b> ${data.email}</p><br>
+              <p><b>Created:</b> ${data.created}</p><br>
+              <p><b>Status:</b> ${data.status.statusName}</p>
             `
             details.appendChild(statusColor)
+
+            // Add comment
+            details.innerHTML += `<br><b>Comment:<b><br>`
+            details.appendChild(comment)
+            details.innerHTML += `<br>`
+
+            // Change status
+            details.innerHTML += `<br><p><b>Change status:</b></p>`
+            // Status not started
+            details.appendChild(statusNotStarted)
+            statusNotStarted.addEventListener('click', e => {
+              console.log("Change status to not started")
+            })
+
+            // Status pending
+            details.appendChild(statusPending)
+            statusPending.addEventListener('click', e => {
+              console.log("Change status to pending")
+            })
+
+            // Status done
+            details.appendChild(statusDone)
+            statusDone.addEventListener('click', e => {
+              console.log("Change status to done")
+            })
+            details.innerHTML += `<br>`
+
+            // Close button
+            details.appendChild(btnCloseDetails)
+            btnCloseDetails.addEventListener('click', e => {
+              console.log("clicked close")
+              listErrands()
+            })
+
         }
         // If no comment but modified
         else if(data.comment == undefined && data.modified !== data.created) {
           details.innerHTML += `
+                <button class="btnCloseDetails"><b>&#10005;</b></button>
                 <h3>Subject: ${data.subject}</h3>
-                <p>Message: ${data.message}</p>
-                <p>Email: ${data.email}</p><br>
-                <p>Created: ${data.created}</p>
-                <p>Created: ${data.modified}</p>
-                <p>Status: ${data.status.statusName}</p>
+                <p><b>Message:</b> ${data.message}</p><br>
+                <p><b>Email:</b> ${data.email}</p><br>
+                <p><b>Created:</b> ${data.created}</p>
+                <p><b>Created:</b> ${data.modified}</p><br>
+                <p><b>Status:</b> ${data.status.statusName}</p>
             
             `
             details.appendChild(statusColor)
@@ -72,12 +141,13 @@ const getData = async (id) => {
         // If modified but no comment
         else if (data.modified == data.created && data.comment !== undefined) {
           details.innerHTML += `
+              <button class="btnCloseDetails"><b>&#10005;</b></button>
               <h3>Subject: ${data.subject}</h3>
-              <p>Message: ${data.message}</p>
-              <p>Email: ${data.email}</p><br>
-              <p>Created: ${data.created}</p>
-              <p>Comment: ${data.comment}</p><br>
-              <p>Status: ${data.status.statusName}</p>
+              <p><b>Message:</b> ${data.message}</p><br>
+              <p><b>Email:</b> ${data.email}</p><br>
+              <p><b>Created:</b> ${data.created}</p>
+              <p><b>Comment:</b> ${data.comment}</p><br>
+              <p><b>Status:</b> ${data.status.statusName}</p>
           
           `
           details.appendChild(statusColor)
@@ -85,13 +155,14 @@ const getData = async (id) => {
         // Both modified and had a comment
         else {
           details.innerHTML += `
+              <button class="btnCloseDetails"><b>&#10005;</b></button>
               <h3>Subject: ${data.subject}</h3>
-              <p>Message: ${data.message}</p>
-              <p>Email: ${data.email}</p><br>
-              <p>Comment: ${data.comment}</p><br>
-              <p>Created: ${data.created}</p>
-              <p>Modified: ${data.modified}</p>
-              <p>Status: ${data.status.statusName}</p>
+              <p><b>Message:</b> ${data.message}</p><br>
+              <p><b>Email:</b> ${data.email}</p><br>
+              <p><b>Comment:</b> ${data.comment}</p><br>
+              <p><b>Created:</b> ${data.created}</p>
+              <p><b>Modified:</b> ${data.modified}</p><br>
+              <p><b>Status:</b> ${data.status.statusName}</p>
           
           `
           details.appendChild(statusColor)
@@ -127,6 +198,8 @@ getErrand();
 // List errands
 const listErrands = () => {
     errandList.innerHTML = ''
+
+    // Add .reverse() to list the array backwards
   
     errands.forEach(errand => {
       
@@ -178,17 +251,15 @@ const listErrands = () => {
 // __________________________________________
 
 //   EXPAND ERRAND ON CLICK (Detaljerad lista)
-  const expandErrand = e => {
-    if(e.target.classList.contains('errand')){
-      console.log('Du klickade en div')
-      console.log(e.target)
-      errandID = e.target.id
-      console.log('Errand ID: ' + errandID)      
-      console.log("get by id: " + GetByID)
-      getData(errandID);
-      
-      return
-    }
+const expandErrand = e => {
+  if(e.target.classList.contains('errand')){
+    console.log('Du klickade en div')
+    errandID = e.target.id
+    console.log('Errand ID: ' + errandID)
+    getData(errandID);
+    
+    return
   }
+}
 
-  errandList.addEventListener('click', expandErrand)
+errandList.addEventListener('click', expandErrand)

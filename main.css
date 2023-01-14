@@ -452,7 +452,7 @@ footer .footer-underlink ul li a:hover {
 }
 .details h3 {
   font-size: 1.6rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
 }
 .details p {
   font-size: 1rem;
@@ -476,4 +476,24 @@ footer .footer-underlink ul li a:hover {
 
 .red {
   background-color: red;
+}
+
+.btnCloseDetails {
+  position: relative;
+  top: 2rem;
+  width: 25px;
+  height: 25px;
+  margin-bottom: 2rem;
+}
+
+.statusPending {
+  margin-left: 1rem;
+}
+
+.statusDone {
+  margin-left: 1rem;
+}
+
+.comment {
+  width: 80%;
 }/*# sourceMappingURL=main.css.map */
