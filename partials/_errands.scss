@@ -54,7 +54,7 @@ pointer-events: none;
 
     h3 {
         font-size: 1.6rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2.5rem;
     }
 
     p {
@@ -79,4 +79,30 @@ pointer-events: none;
 
 .red {
     background-color: red;
+}
+
+.btnCloseDetails {
+    position: relative;
+    top: 2rem;
+    width: 25px;
+    height: 25px;
+    margin-bottom: 2rem;
+}
+
+// .statusNotStarted {
+    
+// }
+
+.statusPending {
+    margin-left: 1rem;
+}
+
+.statusDone {
+    margin-left: 1rem;
+}
+
+.comment {
+    width: 80%;
+    
+
 }
