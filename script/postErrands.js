@@ -9,6 +9,7 @@ const checkbox = document.querySelector('#checkbox');
 const submitBtn = document.querySelector('#submit');
 const radioBtn = document.querySelectorAll('.input-group3');
 const checkBtn = document.querySelector('.input-group4');
+const formContent = document.querySelector('.form-content')
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ const validateLastName = () => {
 }
 
 const validateEmail = () => {
-    if(email.value.match(emailRegex)) {
+    if (email.value.match(emailRegex)) {
         email.classList.remove('error');
         return true;
     }
@@ -53,7 +54,7 @@ const validateEmail = () => {
 }
 
 const validateMessage = () => {
-    if(message.value.length < 1) {
+    if (message.value.length < 1) {
         message.classList.add('error');
     } else {
         console.log('message OK')
@@ -62,18 +63,25 @@ const validateMessage = () => {
 }
 
 const validateRadioBtn = () => {
-    radioBtn.forEach(radio => {
-        if(radio.checked) {
-            radio.parentElement.classList.add('error');
-        }
-    })
+    if (!radioBtn1.checked && !radioBtn2.checked && !radioBtn3.checked) {
+        radioBtn1.parentElement.classList.add('error');
+        radioBtn2.parentElement.classList.add('error');
+        radioBtn3.parentElement.classList.add('error');
+        console.log('error ffs idiot')
+    }
+    else {
+        console.log('ok u retard')
+        radioBtn1.parentElement.classList.remove('error');
+        radioBtn2.parentElement.classList.remove('error');
+        radioBtn3.parentElement.classList.remove('error');
+    }
+
 }
 
 const validateCheckbox = () => {
-    if(checkbox.checked) {
+    if (checkbox.checked) {
         checkBtn.classList.remove('error');
     } else {
         checkBtn.classList.add('error')
     }
 }
-
