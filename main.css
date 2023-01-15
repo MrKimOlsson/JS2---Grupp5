@@ -297,6 +297,42 @@ footer .footer-underlink ul li a:hover {
   font-size: 1rem;
 }
 
+.about-main {
+  width: 80%;
+  margin: auto;
+}
+.about-main h1 {
+  font-size: 48px;
+  padding-top: 3rem;
+}
+.about-main .about-text-wrapper {
+  display: flex;
+  height: 100vh;
+}
+.about-main .about-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+}
+.about-main .about-right {
+  flex: 1;
+}
+.about-main .about-right .about-div {
+  padding-top: 3rem;
+}
+.about-main .about-div {
+  width: 90%;
+}
+.about-main .about-div h2 {
+  font-size: 30px;
+  color: rgb(40, 49, 148);
+  padding-bottom: 1rem;
+}
+.about-main .about-div p {
+  font-size: 16px;
+}
+
 .conact-form-wrap {
   display: flex;
   flex-direction: column;
