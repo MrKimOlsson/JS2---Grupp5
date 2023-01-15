@@ -1,0 +1,108 @@
+  
+.errands-main{
+    height: 100%;
+
+}
+  
+.container {
+    width: 80%;
+    margin: 3rem auto;
+}
+
+.errand {
+    background-color: $card-bg;
+    margin-block: 1rem;
+    padding: 1rem;
+    box-shadow: $errand-shadow;
+    border-radius: 1rem;
+}
+
+.errand h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.errand p {
+    font-size: 1rem;
+    margin-bottom: .3rem;
+}
+
+.errand_subject {
+    font-size: 3rem;
+    font-weight: bold;
+   }
+
+.errand_message,
+.errand_email {
+font-size: .7em;
+}
+
+.errand_name,
+.errand_message,
+.errand_email {
+pointer-events: none;
+}
+
+.details {
+    width: 100%;
+    height: 60vh;
+    background-color: $details-bg;
+    border-radius: 1rem;
+    box-shadow: $errand-shadow;
+    margin-top: 1rem;
+    padding: 2rem;
+
+    h3 {
+        font-size: 1.6rem;
+        margin-bottom: 2.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: .3rem;
+    }
+}
+
+.statusColor {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+}
+
+.btnCloseDetails {
+    position: relative;
+    top: 2rem;
+    width: 25px;
+    height: 25px;
+    margin-bottom: 2rem;
+}
+
+// .statusNotStarted {
+    
+// }
+
+.statusPending {
+    margin-left: 1rem;
+}
+
+.statusDone {
+    margin-left: 1rem;
+}
+
+.comment {
+    width: 80%;
+    
+
+}

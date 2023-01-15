@@ -1,66 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-    crossorigin="anonymous"
-</head>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Home</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Support</a>
-              </li>
-              
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-      <div class="main">
-      <h2>How may we assist you?</h2>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <title>JS2 - Grupp5</title>
+    </head>
 
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Please write your issue here:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
+    <body>
+        <header class="header" id="header">
+            <div class="up-header" id="up-header">
+                <nav class="up-underpages">
+                    <ul>
+                        <li><a href="error.html">Sign up</a></li>
+                        <li><a href="error.html">Login</a></li>
+                        <li><a href="errands.html">Errands</a></li>
+                        <li><a href="error.html">Swedish</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="down-header" id="down-header">
+                <div class="company-name">
+                    <h1>Company</h1>
+                </div>
+                <nav class="down-navbar">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main class="content" id="content">
+            <div class="background" id="background">
+                <h2>You will report to us and we will fix for you!</h2>
+            </div>
+            <div class="content-row-one">
+                <div class="row-one-box box-one">
+                    <h4>Service på hög nivå</h4>
+                    <p>Vi på Stockholms RÖR & VVS AB utför alla tänkbara rörinstallationer – från reparation av
+                        köksblandare till installation
+                        av nytt värmesystem på ett säkert sätt och ser alltid till att lämna kundens hem rent och städat
+                        efter utfört arbete.
 
-      <ul class="nav justify-content-center">
-      
-        <li class="nav-item">
-          <a class="nav-link" href="#">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Info</a>
-        </li>
-       
-      </ul>
+                        Vi tänker inte enbart på funktion utan också på miljö, kvalitet och utseende. Vi följer
+                        branschregler i våra
+                        installationer och all vår personal är utbildade till VVS-montörer.
 
+                        Vi erbjuder kostnadsfritt besök för att ta fram en korrekt offert på det arbete som du som kund
+                        önskar.
+                    </p>
+                </div>
 
-    <script src="script/script.js"></script>
-</body>
+                <div class="row-one-box-image"></div>
+            </div>
+
+            <div class="content-row-two">
+                <div class="row-two-box">
+                    <div class="box-row">
+                        <h4>Why chose us?</h4>
+                        <p><i class="fa-solid fa-circle-check"></i>We got years of experiance</p>
+                        <p><i class="fa-solid fa-circle-check"></i>Avaible all hours of the day</p>
+                        <p><i class="fa-solid fa-circle-check"></i>Wholecovered guarantees</p>
+                    </div>
+                    <div class="box-row-card">
+                        <h4>Got any questions?</h4>
+                        <p>Submit this form and we will contact you!</p>
+                        <input type="text" name="" id="" placeholder="Name">
+                        <input type="text" name="" id="" placeholder="E-mail">
+                        <input type="text" name="" id="" placeholder="Subject">
+                        <input type="text" name="" id="" placeholder="Phone">
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer" id="footer">
+            <div class="upper-footer" id="upper-footer">
+                <div class="box-whole" id="box-hole">
+                    <nav class="footer-nav" id="footer-nav">
+                        <h2>Company</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="support.html">Support</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="down-footer" id="down-footer">
+                <div class="box-whole-box">
+                    <div class="box-copywrite" id="box-copywrite">
+                        <p>Copywrite © JS2 - Grupp5</p>
+                    </div>
+
+                    <div class="footer-underlink" id="footer-underlink">
+                        <ul>
+                            <li><a href="error.html">Sign up</a></li>
+                            <li><a href="error.html">Login</a></li>
+                            <li><a href="errands.html">Errands</a></li>
+                            <li><a href="error.html">Swedish</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script/script.js"></script>
+        <script src="https://kit.fontawesome.com/6e5016c73f.js" crossorigin="anonymous"></script>
+    </body>
+
 </html>

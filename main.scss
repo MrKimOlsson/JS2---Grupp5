@@ -1,13 +1,15 @@
-@import 'partials/colors';
-@import 'partials/general';
-@import 'partials/sections';
+// Colors and mixins
+@import 'partials/colors_mixins/colors';
+@import 'partials/colors_mixins/mixins';
 
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: column;
-}
+// Foundation (General = standard html elements)
+@import 'partials/foundation/general';
+@import 'partials/foundation/header';
+@import 'partials/foundation/footer';
 
-.mb-3{
-    padding: 50px;
-}
+// Sections (separata sidor)
+@import 'partials/home';
+@import 'partials/about';
+@import 'partials/contact';
+@import 'partials/support';
+@import 'partials/errands';
