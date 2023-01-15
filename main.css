@@ -337,11 +337,27 @@ footer .footer-underlink ul li a:hover {
   font-weight: bold;
   font-size: 0.9rem;
 }
+.conact-form-wrap .input-group .error {
+  border: 2px solid red;
+  border-radius: 0.5rem;
+}
 .conact-form-wrap .input-group2 {
   margin-bottom: 1rem;
   width: 100%;
 }
+.conact-form-wrap .input-group2 .error {
+  border: 2px solid red;
+  border-radius: 0.5rem;
+}
 .conact-form-wrap .input-group3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.conact-form-wrap .input-group4 {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -396,6 +412,11 @@ footer .footer-underlink ul li a:hover {
 }
 .conact-form-wrap h2 {
   margin-bottom: 1rem;
+}
+
+.error {
+  border: 2px solid red;
+  border-radius: 0.5rem;
 }
 
 .errands-main {

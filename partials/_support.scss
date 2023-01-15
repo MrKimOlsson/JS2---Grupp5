@@ -34,16 +34,29 @@
         label {
             font-weight: bold;
             font-size: 0.9rem;
+            
+        }
+        .error {
+            border: 2px solid red;
+            border-radius: .5rem;
         }
     }
 
     .input-group2 {
         margin-bottom: 1rem;
         width: 100%;
-        
+        .error {
+            border: 2px solid red;
+            border-radius: .5rem;
+        }
     }
 
     .input-group3 {
+        @include flex(row, flex-start, center);
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+    .input-group4 {
         @include flex(row, flex-start, center);
         margin-bottom: 1rem;
         font-size: 0.9rem;
@@ -105,3 +118,9 @@
         margin-bottom: 1rem;
     }
 }
+
+.error {
+    border: 2px solid red;
+    border-radius: .5rem;
+}
+
