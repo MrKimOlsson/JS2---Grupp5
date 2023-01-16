@@ -1,6 +1,7 @@
 // FORM
 .conact-form-wrap {
     @include flex(column, center, none);
+    @include size(50%, 100%);
     max-width: 40em;
     min-height: 35em;
     max-height: 35em;
@@ -9,8 +10,6 @@
     padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid $conact-form-wrap-border;
-    height: 100%;
-    width: 50%;
     margin-top: 4rem;
     margin-bottom: 4rem;
     text-align: center;
