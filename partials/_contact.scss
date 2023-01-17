@@ -1,20 +1,61 @@
-.iframe-wrapper {
-    @include size(100%, 50vh);
-    .iframe {
+.content-wrapper {
+    @include flex(column, center, center);
+    @include size(100%, 100%);
+
+    border: 2px solid green;
+    
+    .iframe-wrapper {
+        @include size(100%, 100vh);
+        
+        .iframe {
+            @include size(100%, 100%);
+            border: 0;
+        }
+    }
+    .contact-info-wrapper {
+        @include flex(column, center, center);
         @include size(100%, 100%);
-        border: 0;
+
+        border: 1px solid red;
+
+        .contact-info-main-box {
+            @include flex(row, center, center);
+            @include size(65%, 100%);
+
+            .contact-info-right-box {
+                @include flex(column, space-evenly, center);
+                @include size(100%, 100%);
+    
+                border: 1px solid blue;
+    
+                .content-info-right-box-inner {
+                    @include flex(row, flex-start, center);
+                    @include size(100%, 25%);
+    
+                    border: 1px solid orange;
+    
+                    .content-info-icon {
+                        @include flex(row, center, center);
+                        @include size(25%, 100%);
+                        margin-left: 5rem;
+    
+                        border: 2px solid darkgreen;
+                    }
+                    .content-info-text {
+                        @include flex(column, space-evenly, flex-start);
+                        @include size(100%, 100%);
+                        padding: 1rem;
+    
+                        border: 2px solid darkblue;
+                    }
+                }
+            }
+            .contact-info-left-box {
+                @include flex(column, center, center);
+                @include size(100%, 100%);
+    
+                border: 1px solid purple;
+            }
+        }
     }
 }
-
-// .testdiv {
-//     @include size(50vh, 50vh);
-//     background-color: #fff;
-    
-
-//     a {
-//         display: block;
-//         @include size(100%, 100%);
-//         border: 1px solid blue;
-//         cursor: pointer;
-//     }
-// }

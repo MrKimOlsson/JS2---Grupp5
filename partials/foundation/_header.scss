@@ -19,14 +19,17 @@ header {
         margin-left: 4rem;
         font-size: 1.3rem;
         margin-top: .5rem;
-
+        
         a {
           text-decoration: none;
           color: $up-header-a;
-
+          
           &:hover {
             text-decoration: underline;
           }
+        }
+        .active {
+          text-decoration: underline;
         }
       }
     }
@@ -67,6 +70,9 @@ header {
           &:hover {
             text-decoration: underline;
           }
+        }
+        .active {
+          text-decoration: underline;
         }
       }
     }
