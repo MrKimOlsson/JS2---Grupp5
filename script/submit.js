@@ -11,11 +11,36 @@ const createCardElement = (post) => {
 
   const subject = document.createElement('h2')
   subject.innerText = post.subject
+
   const message = document.createElement('p')
   message.innerText = post.message
 
+  const email = document.createElement('p')
+  email.innerText = post.email
+
+  const status = document.createElement('p')
+    status.classList.add('errand_status')
+    status.innerText = post.status.statusName
+
+    // Status color
+    let statusColor = document.createElement('div')
+      statusColor.classList.add('statusColor')
+
+    if(errandData.statusId == 3) {
+      statusColor.classList.add('green')
+    }
+    else if(errandData.statusId == 2) {
+      statusColor.classList.add('yellow')
+    }
+    else {
+      statusColor.classList.add('red')
+    }
+
   card.appendChild(subject)
   card.appendChild(message)
+  card.appendChild(email)
+  card.appendChild(status)
+  card.appendChild(statusColor)
 
   return card
 }

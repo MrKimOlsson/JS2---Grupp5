@@ -100,30 +100,24 @@ const getData = async (id) => {
             `
             details.appendChild(statusColor)
 
-                // If no comment but modified
+            // If no comment but modified
             if(data.comment == undefined && data.modified !== data.created) {
               details.innerHTML += `
                     <p><b>Created:</b> ${data.modified}</p><br>
                 `
-                details.appendChild(statusColor)
             }
             // If comment but not modified
             else if (data.modified == data.created && data.comment !== undefined) {
               details.innerHTML += `
                   <p><b>Comment:</b> ${data.comment}</p><br>
               `
-              details.appendChild(statusColor)
             }
             // Both modified and had a comment
             else if(data.comment !== undefined && data.modified !== data.created) {
               details.innerHTML += `
-
                   <p><b>Comment:</b> ${data.comment}</p><br>
                   <p><b>Modified:</b> ${data.modified}</p><br>
-
-              
               `
-              details.appendChild(statusColor)
             }
 
             // Add comment input text

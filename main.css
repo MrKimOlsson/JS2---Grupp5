@@ -18,6 +18,19 @@ main {
   height: 80vh;
 }
 
+.card {
+  display: block;
+  background-color: #fff;
+  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 80vw;
+  margin-top: 1rem;
+}
+.card h2 {
+  margin-bottom: 1rem;
+}
+
 header {
   width: 100%;
 }
@@ -494,15 +507,40 @@ footer .footer-underlink ul li a:hover {
   margin-left: 1rem;
 }
 
-.card {
-  display: block;
-  background-color: #fff;
-  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
+.statusSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  border-bottom: 1px solid rgb(99, 99, 99);
+}
+
+.details_form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+.details_form .btn-d-submit {
+  height: 2rem;
   border-radius: 1rem;
-  padding: 3rem 4rem;
-  width: 80vw;
+  border: none;
+  margin-top: 2rem;
+  box-shadow: 1px 1px 3px #000;
+  transition: all 1s ease;
+}
+.details_form .btn-d-submit:hover {
+  background-color: lightgray;
+}
+.details_form .btn-d-submit:active {
+  box-shadow: 1px 1px 2px #000;
+}
+
+.radioSection {
+  display: flex;
   margin-top: 1rem;
 }
-.card h2 {
-  margin-bottom: 1rem;
+.radioSection p {
+  padding-left: 1rem;
+  padding-right: 0.5rem;
 }/*# sourceMappingURL=main.css.map */

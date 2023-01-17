@@ -13,19 +13,4 @@
 @import 'partials/contact';
 @import 'partials/support';
 @import 'partials/errands';
-
-
-
-.card {
-    display: block;
-    background-color: #fff;
-    box-shadow: 3px 3px 9px #00000039;
-    border-radius: 1rem;
-    padding: 3rem 4rem;
-    width: 80vw;
-    margin-top: 1rem;
-
-    h2{
-        margin-bottom: 1rem;
-    }
-}
+@import 'partials/details';
