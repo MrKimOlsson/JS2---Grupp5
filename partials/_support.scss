@@ -1,9 +1,9 @@
 // FORM
 .conact-form-wrap {
     @include flex(column, center, none);
-    @include size(50%, 100%);
+    @include size(100%, 100%);
     max-width: 40em;
-    min-height: 35em;
+    // min-height: 35em;
     max-height: 35em;
     box-shadow: $box-shadow;
     background-color: $conact-form-wrap-bg;

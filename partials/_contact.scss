@@ -1,0 +1,20 @@
+.iframe-wrapper {
+    @include size(100%, 50vh);
+    .iframe {
+        @include size(100%, 100%);
+        border: 0;
+    }
+}
+
+// .testdiv {
+//     @include size(50vh, 50vh);
+//     background-color: #fff;
+    
+
+//     a {
+//         display: block;
+//         @include size(100%, 100%);
+//         border: 1px solid blue;
+//         cursor: pointer;
+//     }
+// }
