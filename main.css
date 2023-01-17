@@ -494,6 +494,15 @@ footer .footer-underlink ul li a:hover {
   margin-left: 1rem;
 }
 
-.comment {
-  width: 80%;
+.card {
+  display: block;
+  background-color: #fff;
+  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 80vw;
+  margin-top: 1rem;
+}
+.card h2 {
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=main.css.map */

@@ -1,33 +1,29 @@
-const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
-console.log(BASE_URL);
+const id = new URLSearchParams(window.location.search).get('id')
 const errands = []
 
+console.log(id)
+
+const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
 
 const output = document.querySelector('#output');
 
-const getPosts = async () => {
-  const res = await fetch(BASE_URL)
-  const posts = await res.json()
 
-  console.log(posts)
-  // Loopar igenom Post som kommer från databasen
-  posts.forEach(post => {
-    errands.push(post)
+const getPost = async () => {
+  const res = await fetch(BASE_URL + id)
+  const post = await res.json()
+
+  console.log(post)
+
     //Lägg till ett nytt element i output
     output.appendChild(createCardElement(post))
-  })
 }
 
-
-getPosts()
+getPost()
 
 // Skapa ett card element med information från post > från databsen
 const createCardElement = (post) => {
-    const card = document.createElement('a')
-    card.className = 'card'
-    
-  // card.href = `details.html?id=${post.id}`
-  card.setAttribute('href', `details.html?id=${post.id}`)
+  const card = document.createElement('div')
+  card.className = 'card'
 
   const subject = document.createElement('h2')
   subject.innerText = post.subject
