@@ -42,18 +42,17 @@
             <div class="conact-form-wrap">
                         <h1>Welcome to Support</h1>
                         <h2>How may we assist you?</h2>
-            <form class="form-content">
+            <form id="form" class="form-content">
+
                 <div class="input-group-wrap">
                     <div class="input-group">
-                        <label for="firstName" class="input-label"></label>
-                        <input id="firstName" type="text" placeholder="First name:" id="firstName" class="form-control">
-                    </div>
-                  
-                    <div class="input-group">
-                        <label for="lastName" class="input-label"></label>
-                        <input id="lastName" type="text" placeholder="Last name:" id="lastName" class="form-control">
+
+                        <label for="subject" class="input-label"></label>
+                        <input type="text" placeholder="Subject:" id="subject" class="form-control">
+
                     </div>
                 </div>
+                  
                 <div class="input-group-wrap">
                     <div class="input-group2">
                         <label for="email" class="input-label"></label>
@@ -67,27 +66,29 @@
                 </div>
                 
                 <div class="input-group3">
-                    <input class="allradios" id="radioBtn1" type="radio" name="errandsRadio">
+
+                    <input type="radio" name="radioBtn">
                     <label class="radio-text">Purchase of product/service</label>
                 </div>
                 <div class="input-group3">
-                    <input class="allradios" id="radioBtn2" type="radio" name="errandsRadio">
+                    <input type="radio" name="radioBtn">
                     <label class="radio-text">Questions about the company</label>
                 </div>
                 <div class="input-group3">
-                    <input class="allradios" id="radioBtn3" type="radio" name="errandsRadio">
+                    <input type="radio" name="radioBtn">
                     <label class="radio-text">Feedback about the website</label>
                 </div>
-                <div class="input-group4">
-                    <input id="checkbox" type="checkbox">
+                <div class="input-group3">
+                    <input type="checkbox" name="box">
+
                     <label class="terms-text">Accept terms and conditions</label>
                 </div>
-                
+           
                 <div>
                     <button id="submit" class="btn-submit btn-primary">Send Message</button>
                 </div>
             </form>
-        </div>
+            </div>
 
             </div>
 
@@ -130,7 +131,9 @@
         </footer>
     </div>
 
-    <script src="script/postErrands.js"></script>
+    <!-- <script src="script/postErrands.js"></script> -->
+    <script src="script/submit.js"></script>
+
     <script src="https://kit.fontawesome.com/6e5016c73f.js" crossorigin="anonymous"></script>
 </body>
 
