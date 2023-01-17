@@ -10,8 +10,7 @@
     padding: 1rem;
     border-radius: 0.5rem;
     border: 1px solid $conact-form-wrap-border;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin: auto;
     text-align: center;
 
     .form-content {
@@ -36,12 +35,17 @@
         }
     }
 
-    .input-group2 {
+    .input-textarea {
+        @include size(100%, 80px);
+        resize: none;
+        margin-top: 1rem;
         margin-bottom: 1rem;
-        width: 100%;
-        
     }
 
+    .input-group3-wrapper {
+        margin-top: 5vh;
+        margin-bottom: 2.5vh;
+    }
     .input-group3 {
         @include flex(row, flex-start, center);
         margin-bottom: 1rem;
