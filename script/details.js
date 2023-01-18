@@ -2,13 +2,14 @@ const id = new URLSearchParams(window.location.search).get('id')
 const btnSubmitDetails = document.querySelector('#d-submit')
 const detailsForm = document.querySelector('#detailsForm')
 const errands = []
+let statusID = "";
 
 console.log(id)
 
 const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
+const COMMENT_URL = 'https://fnd22-shared.azurewebsites.net/api/Comments';
 
 const output = document.querySelector('#output');
-
 
 const getPost = async () => {
   
@@ -48,48 +49,38 @@ const createCardElement = (post) => {
   card.appendChild(statusSection)
 
   const status = document.createElement('p')
-    status.classList.add('errand_status')
-    status.innerText = post.status.statusName
+  status.classList.add('errand_status')
+  status.innerText = post.status.statusName
 
-    // Status color
-    let statusColor = document.createElement('div')
-      statusColor.classList.add('statusColor')
+  // Status color
+  let statusColor = document.createElement('div')
+    statusColor.classList.add('statusColor')
 
-    if(post.statusId == 3) {
-      statusColor.classList.add('green')
-    }
-    else if(post.statusId == 2) {
-      statusColor.classList.add('yellow')
-    }
-    else {
-      statusColor.classList.add('red')
-    }
+  if(post.statusId == 3) {
+    statusColor.classList.add('green')
+  }
+  else if(post.statusId == 2) {
+    statusColor.classList.add('yellow')
+  }
+  else {
+    statusColor.classList.add('red')
+  }
 
   statusSection.appendChild(status)
   statusSection.appendChild(statusColor)
 
-
-  // DISPLAY COMMENT AND MODIFIED DATE
-  // If no comment but modified
-  if(post.comment == undefined && post.modified !== post.created) {
-    details.innerHTML += `
-          <p><b>Created:</b> ${data.modified}</p><br>
-      `
-  }
-  // If comment but not modified
-  else if (post.modified == post.created && post.comment !== undefined) {
-    details.innerHTML += `
-        <p><b>Comment:</b> ${post.comment}</p><br>
-    `
-  }
-  // Both modified and had a comment
-  else if(post.comment !== undefined && post.modified !== post.created) {
-    details.innerHTML += `
-        <p><b>Comment:</b> ${post.comment}</p><br>
-        <p><b>Modified:</b> ${post.modified}</p><br>
-    `
-  }
-
+  // Loopar throug the comments array
+  // For each comment:
+  // Print comment message
+  // and date of each comment
+  post.comments.forEach(comment => {
+    console.log("Comments: " + comment.message)
+    card.innerHTML += `
+      <p><b>Comment:</b> ${comment.message}</p><br>
+      <p><b>Time:</b> ${comment.created}</p><br>
+  `
+  });
+    
   // ADD INPUT FORM TO DETAILS CARD
   const detailsForm = document.createElement('form')
   detailsForm.setAttribute("id", "detailsForm");
@@ -138,6 +129,12 @@ const createCardElement = (post) => {
   comment.setAttribute("id", "comment");
   comment.classList.add('comment');
 
+   // Add mail text input
+   let commentEmail = document.createElement('INPUT')
+   commentEmail.setAttribute("type", "text");
+   commentEmail.setAttribute("id", "commentEmail");
+   commentEmail.classList.add('CommentEmail');
+
   //  Add submit button to details form
   let detailsSubmit = document.createElement('button');
   detailsSubmit.setAttribute("name", "btb-d-submit");
@@ -149,49 +146,100 @@ const createCardElement = (post) => {
   // Add heading, comment input, radioSection & submit btn to detailsForm
   detailsForm.innerHTML += `<h4>Comment:</h4>`
   detailsForm.appendChild(comment)
+  detailsForm.innerHTML += `<h5>Email:</h5>`
+  detailsForm.appendChild(commentEmail)
   detailsForm.appendChild(radioSection)
   detailsForm.appendChild(detailsSubmit)
   
   // Add detailsForm to card
   card.appendChild(detailsForm)
-  detailsForm.addEventListener('submit', handleSubmit)
 
-  // Check status checked in radio
-  // save checked status in variable
-  // pass in to POST object
-
+  detailsForm.addEventListener('submit', commentSubmit)
   return card
 }
-
-// TO DO:
-// GET ID AND ADD TO URL
-// CONTROL METHOD TYPE
-
-
-
 // Handle submit
-
-const handleSubmit = e => {
+const commentSubmit = e => {
   e.preventDefault()
-  // tbd Validera formuläret.
-  console.log(postID);
-  const newChange = {
-    comments: document.querySelector('#comment').value,
-    statusID: document.querySelector('#status').value,
-    }
-  
 
-  fetch(BASE_URL, {
-  method: 'POST',
-  body: JSON.stringify(newChange),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
+  console.log(e.target.comment.value);
+  console.log(e.target);
+
+  let statusID = 0;
+  let comment = "";
+  
+  if(e.target.comment.value !== "") {
+    console.log("Comment: " + e.target.comment.value)
+    comment = e.target.comment.value
+    console.log(comment);
+
+    // Check what to change status ID into
+    if(e.target.notStarted.checked){
+      console.log("Set status: not started")
+      statusID = 1;
+    }
+    else if(e.target.pending.checked){
+      console.log("Set status: pending")
+      statusID = 2;
+    }
+    else if(e.target.done.checked){
+      console.log("Set status: done")
+      statusID = 3;
+    }
+  }
+
+  // No comment to submit
+  else{
+    console.log("Add a comment")
+    return
+  }
+  
+  // Info to change status ID
+  let changeID = {
+    id: id,
+    statusID: statusID,
+  }
+
+  // Options for fetch method
+  let options = {
+    method: "PUT",
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(changeID)
+  }
+
+  // Fetch method to change status ID
+  fetch(BASE_URL+id, options)
   .then((response) => response.json())
   .then((data) => {
-
-    errands.push(data)
+        console.log("change status ID response data:")
+        console.log(data);
+        errands.push(data)
   });
-}
 
+  // COMMENT
+
+    // Comment post payload - CONTENT TO POST
+    const addComment = {
+    caseID: id,
+    email: document.querySelector('#commentEmail').value,
+    message: comment,
+  }
+    // Options for fetch method
+    let commentOptions = {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(addComment)
+    }
+  
+    // Fetch method to change status ID
+    fetch(COMMENT_URL, commentOptions)
+    .then((response) => response.json())
+    .then((data) => {
+          console.log("Add comment response data:")
+          console.log(data);
+          errands.push(data)
+    });    
+}

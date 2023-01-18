@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(17, 26, 91);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -15,7 +15,8 @@ main {
   justify-content: none;
   align-items: center;
   width: 100%;
-  height: 80vh;
+  height: 100%;
+  background-color: rgb(230, 230, 230);
 }
 
 .card {
@@ -101,9 +102,7 @@ header .down-header .down-navbar ul li a:hover {
 footer {
   position: relative;
   bottom: 0;
-  height: auto;
   width: 100%;
-  height: 100%;
   background-color: rgb(17, 26, 91);
   display: flex;
   flex-direction: column;

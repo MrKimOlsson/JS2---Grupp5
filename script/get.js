@@ -9,15 +9,17 @@ const getPosts = async () => {
   const res = await fetch(BASE_URL)
   const posts = await res.json()
 
+  console.log("posts:")
   console.log(posts)
+
   // Loopar igenom Post som kommer från databasen
-  posts.forEach(post => {
+ posts.forEach(post => {
     errands.push(post)
     //Lägg till ett nytt element i output
     output.appendChild(createCardElement(post))
   })
+  
 }
-
 
 getPosts()
 
