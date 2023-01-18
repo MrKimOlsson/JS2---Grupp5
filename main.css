@@ -543,4 +543,152 @@ footer .footer-underlink ul li a:hover {
 .radioSection p {
   padding-left: 1rem;
   padding-right: 0.5rem;
+}
+
+.sign-up {
+  max-width: 40em;
+  min-height: 43em;
+  max-height: 43em;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d8d8d8;
+  height: 100%;
+  width: 50%;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+.sign-up .form-content {
+  width: 100%;
+  height: 100%;
+}
+.sign-up input,
+.sign-up textarea {
+  font-size: 0.8rem;
+}
+.sign-up .sign-up-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.sign-up .input-group {
+  margin-bottom: 2rem;
+  width: 49%;
+}
+.sign-up .input-group label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.sign-up .input-group2 {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.sign-up .input-group3 {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.sign-up .input-group4 {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.sign-up .input-group5 {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.sign-up .input-group6 {
+  margin-bottom: 2rem;
+}
+.sign-up .input-group6 #checkbox {
+  width: 1rem;
+}
+.sign-up .input-group6 input {
+  padding-left: 1rem;
+}
+.sign-up .input-label {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.sign-up .form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d8d8d8;
+  background-color: rgb(245, 245, 245);
+  box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+.sign-up .form-control2 {
+  width: 100%;
+  height: 10vh;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d8d8d8;
+  background-color: rgb(245, 245, 245);
+  box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+.sign-up .sign-up-btn {
+  width: 100%;
+  padding: 0.8em 1.4em;
+  border-radius: 0.5rem;
+  border: 0;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+.sign-up .sign-up-btn {
+  background-color: hsl(202deg, 95%, 46%);
+  color: #fff;
+  transition: background 70ms;
+}
+.sign-up .sign-up-btn:hover,
+.sign-up .sign-up-btn:focus {
+  background-color: hsl(202deg, 95%, 51%);
+}
+.sign-up .sign-up-btn:active {
+  background-color: hsl(202deg, 95%, 41%);
+}
+.sign-up h1 {
+  margin-bottom: 2rem;
+}
+.sign-up h2 {
+  margin-bottom: 2rem;
+}
+.sign-up .error {
+  border: 2px solid red;
+  border-radius: 0.5rem;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.sign-up .thanks h3 {
+  color: rgb(0, 0, 0);
+  padding-top: 1rem;
+  text-shadow: 3px 3px 6px rgb(243, 238, 238);
+  font-size: 1.5rem;
+  -webkit-animation: fadeIn 3s;
+          animation: fadeIn 3s;
+}
+.sign-up .thanks h4 {
+  font-size: 1rem;
+  padding-top: 1.2rem;
+  color: rgb(0, 0, 0);
+  text-shadow: 3px 3px 6px rgb(234, 230, 230);
+  -webkit-animation: fadeIn 6s;
+          animation: fadeIn 6s;
 }/*# sourceMappingURL=main.css.map */
