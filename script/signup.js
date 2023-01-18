@@ -139,15 +139,18 @@ formContent.addEventListener('submit', e => {
     const thankYou = () => {
       output.innerHTML +=
         `
-      <div class="thanks">
-        <h3>You are now registered!</h3>
-        <h4>Hope you have a great day!</h4>
-      </div>
-      `
-      output.innerHTML = ''
+  <div class="thanks">
+    <h3>You are now registered!</h3>
+    <h4>Hope you have a great day!</h4>
+  </div>
+  `
     }
     thankYou()
     clearForm()
+    setTimeout(() => {
+      const thanksDiv = document.querySelector('.thanks');
+      thanksDiv.parentNode.removeChild(thanksDiv);
+    }, 5000);
 
 
   }
