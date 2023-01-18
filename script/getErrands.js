@@ -5,8 +5,7 @@ const errands = []
 const errandList = document.querySelector('#output')
 const container = document.querySelector('#container')
 const details = document.querySelector('#details');
-// const closeDetails = document.querySelector('.btnCloseDetails');
-// const closeDetails = document.querySelector('.btnCloseDetails');
+const detailsSubmit = document.querySelector('.details-form-submit');
 
 // __________________________________________
 
@@ -38,25 +37,35 @@ const getData = async (id) => {
         // Status not started
         let statusNotStarted = document.createElement('INPUT')
         statusNotStarted.setAttribute("type", "radio");
+        statusNotStarted.setAttribute("name", "status");
+        statusNotStarted.setAttribute("value", "not started");
+        statusNotStarted.setAttribute("checked", "checked");
         statusNotStarted.classList.add('statusNotStarted')
 
         // Status pending
         let statusPending = document.createElement('INPUT')
         statusPending.setAttribute("type", "radio");
+        statusPending.setAttribute("name", "status");
+        statusPending.setAttribute("value", "pending");
         statusPending.classList.add('statusPending')
 
         // Status done
         let statusDone = document.createElement('INPUT')
         statusDone.setAttribute("type", "radio");
+        statusDone.setAttribute("name", "status");
+        statusDone.setAttribute("value", "done");
         statusDone.classList.add('statusDone')
 
         // Comment
         let comment = document.createElement('INPUT')
-        comment.setAttribute("type", "text", "rows=", "5");
+        comment.setAttribute("type", "text");
+        // comment.setAttribute("cols", "30");
+        // comment.setAttribute("rows", "5");
         comment.classList.add('comment')
 
         // Close button
         let btnCloseDetails = document.createElement('button')
+        btnCloseDetails.setAttribute("value", "close");
         btnCloseDetails.classList.add('btnCloseDetails')
 
         console.log("Errand status ID:")
@@ -79,8 +88,9 @@ const getData = async (id) => {
         
 
         // If no comment and not modified
-        if(data.comment == undefined && data.modified == data.created) {
-          details.innerHTML += `
+        // if(data.comment == undefined && data.modified == data.created) {
+          
+        details.innerHTML += `
                 
               <h3>Subject: ${data.subject}</h3>
               <p><b>Message:</b> ${data.message}</p><br>
@@ -90,12 +100,32 @@ const getData = async (id) => {
             `
             details.appendChild(statusColor)
 
-            // Add comment
+            // If no comment but modified
+            if(data.comment == undefined && data.modified !== data.created) {
+              details.innerHTML += `
+                    <p><b>Created:</b> ${data.modified}</p><br>
+                `
+            }
+            // If comment but not modified
+            else if (data.modified == data.created && data.comment !== undefined) {
+              details.innerHTML += `
+                  <p><b>Comment:</b> ${data.comment}</p><br>
+              `
+            }
+            // Both modified and had a comment
+            else if(data.comment !== undefined && data.modified !== data.created) {
+              details.innerHTML += `
+                  <p><b>Comment:</b> ${data.comment}</p><br>
+                  <p><b>Modified:</b> ${data.modified}</p><br>
+              `
+            }
+
+            // Add comment input text
             details.innerHTML += `<br><b>Comment:<b><br>`
             details.appendChild(comment)
             details.innerHTML += `<br>`
 
-            // Change status
+            // Change status radio buttons
             details.innerHTML += `<br><p><b>Change status:</b></p>`
             // Status not started
             details.appendChild(statusNotStarted)
@@ -123,50 +153,45 @@ const getData = async (id) => {
               listErrands()
             })
 
-        }
-        // If no comment but modified
-        else if(data.comment == undefined && data.modified !== data.created) {
-          details.innerHTML += `
-                <button class="btnCloseDetails"><b>&#10005;</b></button>
-                <h3>Subject: ${data.subject}</h3>
-                <p><b>Message:</b> ${data.message}</p><br>
-                <p><b>Email:</b> ${data.email}</p><br>
-                <p><b>Created:</b> ${data.created}</p>
-                <p><b>Created:</b> ${data.modified}</p><br>
-                <p><b>Status:</b> ${data.status.statusName}</p>
+
             
-            `
-            details.appendChild(statusColor)
-        }
-        // If modified but no comment
-        else if (data.modified == data.created && data.comment !== undefined) {
-          details.innerHTML += `
-              <button class="btnCloseDetails"><b>&#10005;</b></button>
-              <h3>Subject: ${data.subject}</h3>
-              <p><b>Message:</b> ${data.message}</p><br>
-              <p><b>Email:</b> ${data.email}</p><br>
-              <p><b>Created:</b> ${data.created}</p>
-              <p><b>Comment:</b> ${data.comment}</p><br>
-              <p><b>Status:</b> ${data.status.statusName}</p>
-          
-          `
-          details.appendChild(statusColor)
-        }
-        // Both modified and had a comment
-        else {
-          details.innerHTML += `
-              <button class="btnCloseDetails"><b>&#10005;</b></button>
-              <h3>Subject: ${data.subject}</h3>
-              <p><b>Message:</b> ${data.message}</p><br>
-              <p><b>Email:</b> ${data.email}</p><br>
-              <p><b>Comment:</b> ${data.comment}</p><br>
-              <p><b>Created:</b> ${data.created}</p>
-              <p><b>Modified:</b> ${data.modified}</p><br>
-              <p><b>Status:</b> ${data.status.statusName}</p>
-          
-          `
-          details.appendChild(statusColor)
-        }
+
+
+
+            // Detaljerad info ska skrivas ut i en ny html sida.
+
+            // Skapa ett formulär som innehåller kommentar och radio button delen
+            // och samlar kommentar och radio button value on submit
+            // Och postar sedan till DB
+
+            // How to:
+            // create form and submit button using createElement
+            // add text input and radio buttons and submit button using appendChild to form
+            // On submit, check status of radio buttons
+            // If statement to determin what to change statusID into
+            // Then post the changes to the DB
+            // 
+            
+            // Change status function FUNKAR INTE!!!!
+            // let changeStatus = e =>{
+            //   if(statusPending.checked == true){
+            //     console.log("Change status to pending")
+            //   }
+            //   else if(statusDone.checked == true){
+            //     console.log("Change status to done")
+            //   }
+            //   else if(statusNotStarted == true){
+            //     console.log("Change status to not started")
+            //   }
+            // }
+
+            // statusNotStarted.addEventListener('checked', changeStatus);
+            // statusPending.addEventListener('checked', changeStatus);
+            // statusDone.addEventListener('checked', changeStatus);
+            
+
+        // }
+
       }
     // If can´t fetch by ID = Catch error and output error message
     catch(err) {

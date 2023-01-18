@@ -18,6 +18,19 @@ main {
   height: 80vh;
 }
 
+.card {
+  display: block;
+  background-color: #fff;
+  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 80vw;
+  margin-top: 1rem;
+}
+.card h2 {
+  margin-bottom: 1rem;
+}
+
 header {
   width: 100%;
 }
@@ -297,6 +310,42 @@ footer .footer-underlink ul li a:hover {
   font-size: 1rem;
 }
 
+.about-main {
+  width: 80%;
+  margin: auto;
+}
+.about-main h1 {
+  font-size: 48px;
+  padding-top: 3rem;
+}
+.about-main .about-text-wrapper {
+  display: flex;
+  height: 100vh;
+}
+.about-main .about-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+}
+.about-main .about-right {
+  flex: 1;
+}
+.about-main .about-right .about-div {
+  padding-top: 3rem;
+}
+.about-main .about-div {
+  width: 90%;
+}
+.about-main .about-div h2 {
+  font-size: 30px;
+  color: rgb(40, 49, 148);
+  padding-bottom: 1rem;
+}
+.about-main .about-div p {
+  font-size: 16px;
+}
+
 .conact-form-wrap {
   display: flex;
   flex-direction: column;
@@ -322,6 +371,7 @@ footer .footer-underlink ul li a:hover {
 }
 .conact-form-wrap input, .conact-form-wrap textarea {
   font-size: 0.8rem;
+  outline: none;
 }
 .conact-form-wrap .input-group-wrap {
   display: flex;
@@ -342,6 +392,14 @@ footer .footer-underlink ul li a:hover {
   width: 100%;
 }
 .conact-form-wrap .input-group3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.conact-form-wrap .input-group4 {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -396,6 +454,15 @@ footer .footer-underlink ul li a:hover {
 }
 .conact-form-wrap h2 {
   margin-bottom: 1rem;
+}
+
+.error {
+  outline: 1px solid red;
+  border-radius: 0.5rem;
+}
+
+.success {
+  outline: none;
 }
 
 .errands-main {
@@ -494,6 +561,40 @@ footer .footer-underlink ul li a:hover {
   margin-left: 1rem;
 }
 
-.comment {
-  width: 80%;
+.statusSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  border-bottom: 1px solid rgb(99, 99, 99);
+}
+
+.details_form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+.details_form .btn-d-submit {
+  height: 2rem;
+  border-radius: 1rem;
+  border: none;
+  margin-top: 2rem;
+  box-shadow: 1px 1px 3px #000;
+  transition: all 1s ease;
+}
+.details_form .btn-d-submit:hover {
+  background-color: lightgray;
+}
+.details_form .btn-d-submit:active {
+  box-shadow: 1px 1px 2px #000;
+}
+
+.radioSection {
+  display: flex;
+  margin-top: 1rem;
+}
+.radioSection p {
+  padding-left: 1rem;
+  padding-right: 0.5rem;
 }/*# sourceMappingURL=main.css.map */
