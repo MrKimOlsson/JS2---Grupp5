@@ -28,6 +28,11 @@ const sortPosts = (posts) => {
 
 getPosts()
 
+
+
+
+getPosts()
+
 const createCardElement = (post) => {
   const card = document.createElement('a')
   card.className = 'card'
@@ -70,4 +75,6 @@ const createCardElement = (post) => {
 
   return card
 }
+
+
 
