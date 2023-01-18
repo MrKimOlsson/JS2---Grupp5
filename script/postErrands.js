@@ -75,7 +75,6 @@ const validateRadioBtn = () => {
         radioBtn2.parentElement.classList.remove('error');
         radioBtn3.parentElement.classList.remove('error');
     }
-
 }
 
 const validateCheckbox = () => {
