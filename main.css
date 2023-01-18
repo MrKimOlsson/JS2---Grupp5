@@ -371,6 +371,7 @@ footer .footer-underlink ul li a:hover {
 }
 .conact-form-wrap input, .conact-form-wrap textarea {
   font-size: 0.8rem;
+  outline: none;
 }
 .conact-form-wrap .input-group-wrap {
   display: flex;
@@ -386,17 +387,9 @@ footer .footer-underlink ul li a:hover {
   font-weight: bold;
   font-size: 0.9rem;
 }
-.conact-form-wrap .input-group .error {
-  border: 2px solid red;
-  border-radius: 0.5rem;
-}
 .conact-form-wrap .input-group2 {
   margin-bottom: 1rem;
   width: 100%;
-}
-.conact-form-wrap .input-group2 .error {
-  border: 2px solid red;
-  border-radius: 0.5rem;
 }
 .conact-form-wrap .input-group3 {
   display: flex;
@@ -464,8 +457,12 @@ footer .footer-underlink ul li a:hover {
 }
 
 .error {
-  border: 2px solid red;
+  outline: 1px solid red;
   border-radius: 0.5rem;
+}
+
+.success {
+  outline: none;
 }
 
 .errands-main {
