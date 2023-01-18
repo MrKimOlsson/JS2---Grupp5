@@ -5,19 +5,26 @@ const errands = []
 
 const output = document.querySelector('#output');
 
+
 const getPosts = async () => {
   const res = await fetch(BASE_URL)
   const posts = await res.json()
 
-  console.log(posts)
-  // Loopar igenom Post som kommer från databasen
-  posts.forEach(post => {
+  //Sort the posts by created
+  const sortedPosts = sortPosts(posts);
+  
+  sortedPosts.forEach(post => {
     errands.push(post)
     //Lägg till ett nytt element i output
     output.appendChild(createCardElement(post))
-  })
+  });
 }
 
+const sortPosts = (posts) => {
+  return posts.sort((a, b) => {
+    return new Date(b.created) - new Date(a.created);
+  });
+}
 
 getPosts()
 
@@ -63,6 +70,4 @@ const createCardElement = (post) => {
 
   return card
 }
-
-
 
