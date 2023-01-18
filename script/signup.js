@@ -144,6 +144,7 @@ formContent.addEventListener('submit', e => {
         <h4>Hope you have a great day!</h4>
       </div>
       `
+      output.innerHTML = ''
     }
     thankYou()
     clearForm()

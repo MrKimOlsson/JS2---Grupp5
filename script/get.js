@@ -5,19 +5,26 @@ const errands = []
 
 const output = document.querySelector('#output');
 
+
 const getPosts = async () => {
   const res = await fetch(BASE_URL)
   const posts = await res.json()
 
-  console.log(posts)
-  // Loopar igenom Post som kommer från databasen
-  posts.forEach(post => {
+  //sort the posts by created
+  const sortedPosts = sortPosts(posts);
+
+  sortedPosts.forEach(post => {
     errands.push(post)
     //Lägg till ett nytt element i output
     output.appendChild(createCardElement(post))
   })
 }
 
+const sortPosts = (posts) => {
+  return posts.sort((a, b) => {
+    return new Date(b.created) - new Date(a.created);
+  });
+}
 
 getPosts()
 
@@ -38,22 +45,22 @@ const createCardElement = (post) => {
   email.innerText = post.email
 
   const status = document.createElement('p')
-    status.classList.add('errand_status')
-    status.innerText = post.status.statusName
+  status.classList.add('errand_status')
+  status.innerText = post.status.statusName
 
-    // Status color
-    let statusColor = document.createElement('div')
-      statusColor.classList.add('statusColor')
+  // Status color
+  let statusColor = document.createElement('div')
+  statusColor.classList.add('statusColor')
 
-    if(post.statusId == 3) {
-      statusColor.classList.add('green')
-    }
-    else if(post.statusId == 2) {
-      statusColor.classList.add('yellow')
-    }
-    else {
-      statusColor.classList.add('red')
-    }
+  if (post.statusId == 3) {
+    statusColor.classList.add('green')
+  }
+  else if (post.statusId == 2) {
+    statusColor.classList.add('yellow')
+  }
+  else {
+    statusColor.classList.add('red')
+  }
 
   card.appendChild(subject)
   card.appendChild(message)
@@ -63,6 +70,4 @@ const createCardElement = (post) => {
 
   return card
 }
-
-
 

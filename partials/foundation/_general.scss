@@ -11,7 +11,7 @@ body {
   
 main {
 @include flex(column, none, center);
-@include size(100%, 80vh);
+
 }
 
 // Card to display errands
