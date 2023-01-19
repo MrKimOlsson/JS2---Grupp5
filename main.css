@@ -172,7 +172,6 @@ footer .footer-underlink ul li a:hover {
   background-size: cover;
   width: 100%;
   height: 30rem;
-  margin-bottom: 4rem;
 }
 .background h2 {
   font-size: 4.5em;
@@ -192,28 +191,29 @@ footer .footer-underlink ul li a:hover {
 }
 .content-row-one .row-one-box {
   width: 100%;
-  height: 34rem;
+  min-height: 23rem;
+  max-height: auto;
   align-self: center;
-  border-right: 1px solid black;
   margin: 1rem 4rem 0rem 4rem;
   padding-right: 1rem;
 }
-.content-row-one .row-one-box h4 {
+.content-row-one .row-one-box h3 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   padding-bottom: 1rem;
 }
 .content-row-one .row-one-box p {
   padding-top: 2rem;
+  text-align: center;
 }
-.content-row-one .row-one-box:last-of-type {
-  border: none;
-}
-.content-row-one .row-one-box-image {
-  width: 100%;
-  background-image: url(/images/plumbthree.avif);
-  background-size: contain;
+
+.row-image {
+  background-color: yellow;
+  background-image: url("/images/vvs.webp");
   background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
 }
 
 .content-row-two {
@@ -222,7 +222,6 @@ footer .footer-underlink ul li a:hover {
   background-color: rgb(53, 176, 233);
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
 }
 .content-row-two .row-two-box {
   width: 80%;
@@ -355,7 +354,8 @@ footer .footer-underlink ul li a:hover {
   width: 100%;
   height: 100%;
 }
-.conact-form-wrap input, .conact-form-wrap textarea {
+.conact-form-wrap input,
+.conact-form-wrap textarea {
   font-size: 0.8rem;
   outline: none;
 }
@@ -393,7 +393,8 @@ footer .footer-underlink ul li a:hover {
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
-.conact-form-wrap .radio-text, .conact-form-wrap .terms-text {
+.conact-form-wrap .radio-text,
+.conact-form-wrap .terms-text {
   padding-left: 0.25rem;
 }
 .conact-form-wrap .input-label {
@@ -432,7 +433,8 @@ footer .footer-underlink ul li a:hover {
   color: #fff;
   transition: background 70ms;
 }
-.conact-form-wrap .btn-primary:hover, .conact-form-wrap .btn-primary:focus {
+.conact-form-wrap .btn-primary:hover,
+.conact-form-wrap .btn-primary:focus {
   background-color: hsl(202deg, 95%, 51%);
 }
 .conact-form-wrap .btn-primary:active {

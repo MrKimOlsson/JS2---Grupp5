@@ -19,7 +19,8 @@
         @include size(100%, 100%);
     }
 
-    input, textarea {
+    input,
+    textarea {
         font-size: 0.8rem;
         outline: none;
     }
@@ -27,7 +28,7 @@
     .input-group-wrap {
         @include flex(row, space-between, center);
     }
-    
+
     .input-group {
         margin-bottom: 1rem;
         width: 49%;
@@ -35,7 +36,7 @@
         label {
             font-weight: bold;
             font-size: 0.9rem;
-            
+
         }
     }
 
@@ -49,13 +50,15 @@
         margin-bottom: 1rem;
         font-size: 0.9rem;
     }
+
     .input-group4 {
         @include flex(row, flex-start, center);
         margin-bottom: 1rem;
         font-size: 0.9rem;
     }
 
-    .radio-text, .terms-text {
+    .radio-text,
+    .terms-text {
         padding-left: 0.25rem;
     }
 
@@ -99,7 +102,8 @@
         transition: background 70ms;
     }
 
-    .btn-primary:hover, .btn-primary:focus {
+    .btn-primary:hover,
+    .btn-primary:focus {
         background-color: $btn-primary-hover;
     }
 
@@ -107,7 +111,7 @@
         background-color: $btn-primary-active;
     }
 
-    h2{
+    h2 {
         margin-bottom: 1rem;
     }
 }
@@ -116,7 +120,7 @@
     outline: 1px solid red;
     border-radius: .5rem;
 }
+
 .success {
     outline: none;
 }
-

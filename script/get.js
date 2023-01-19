@@ -46,6 +46,8 @@ const createCardElement = (post) => {
   status.classList.add('errand_status')
   status.innerText = post.status.statusName
 
+
+
   // Status color
   let statusColor = document.createElement('div')
   statusColor.classList.add('statusColor')
@@ -60,11 +62,19 @@ const createCardElement = (post) => {
     statusColor.classList.add('red')
   }
 
+  const created = document.createElement('p');
+  const date = new Date(post.created);
+  created.innerText = date.toLocaleString();
+
+
   card.appendChild(subject)
   card.appendChild(message)
   card.appendChild(email)
   card.appendChild(status)
   card.appendChild(statusColor)
+  card.appendChild(created);
+
+
 
   return card
 }
