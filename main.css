@@ -184,7 +184,6 @@ footer .footer-underlink ul li a:hover {
   background-size: cover;
   width: 100%;
   height: 30rem;
-  margin-bottom: 4rem;
 }
 .background h2 {
   font-size: 4.5em;
@@ -204,28 +203,29 @@ footer .footer-underlink ul li a:hover {
 }
 .content-row-one .row-one-box {
   width: 100%;
-  height: 34rem;
+  min-height: 23rem;
+  max-height: auto;
   align-self: center;
-  border-right: 1px solid black;
   margin: 1rem 4rem 0rem 4rem;
   padding-right: 1rem;
 }
-.content-row-one .row-one-box h4 {
+.content-row-one .row-one-box h3 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   padding-bottom: 1rem;
 }
 .content-row-one .row-one-box p {
   padding-top: 2rem;
+  text-align: center;
 }
-.content-row-one .row-one-box:last-of-type {
-  border: none;
-}
-.content-row-one .row-one-box-image {
-  width: 100%;
-  background-image: url(/images/plumbthree.avif);
-  background-size: contain;
+
+.row-image {
+  background-color: yellow;
+  background-image: url("/images/vvs.webp");
   background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
 }
 
 .content-row-two {
@@ -234,7 +234,6 @@ footer .footer-underlink ul li a:hover {
   background-color: rgb(53, 176, 233);
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
 }
 .content-row-two .row-two-box {
   width: 80%;
@@ -350,8 +349,8 @@ footer .footer-underlink ul li a:hover {
   justify-content: center;
   align-items: none;
   max-width: 40em;
-  min-height: 35em;
-  max-height: 35em;
+  min-height: 45em;
+  max-height: 45em;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   background-color: #fff;
   padding: 1rem;
@@ -367,7 +366,8 @@ footer .footer-underlink ul li a:hover {
   width: 100%;
   height: 100%;
 }
-.conact-form-wrap input, .conact-form-wrap textarea {
+.conact-form-wrap input,
+.conact-form-wrap textarea {
   font-size: 0.8rem;
   outline: none;
 }
@@ -397,6 +397,7 @@ footer .footer-underlink ul li a:hover {
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
+<<<<<<< HEAD
 .conact-form-wrap .input-group4 {
   display: flex;
   flex-direction: row;
@@ -406,6 +407,10 @@ footer .footer-underlink ul li a:hover {
   font-size: 0.9rem;
 }
 .conact-form-wrap .radio-text, .conact-form-wrap .terms-text {
+=======
+.conact-form-wrap .radio-text,
+.conact-form-wrap .terms-text {
+>>>>>>> Shayan
   padding-left: 0.25rem;
 }
 .conact-form-wrap .input-label {
@@ -444,7 +449,8 @@ footer .footer-underlink ul li a:hover {
   color: #fff;
   transition: background 70ms;
 }
-.conact-form-wrap .btn-primary:hover, .conact-form-wrap .btn-primary:focus {
+.conact-form-wrap .btn-primary:hover,
+.conact-form-wrap .btn-primary:focus {
   background-color: hsl(202deg, 95%, 51%);
 }
 .conact-form-wrap .btn-primary:active {
@@ -454,6 +460,7 @@ footer .footer-underlink ul li a:hover {
   margin-bottom: 1rem;
 }
 
+<<<<<<< HEAD
 .error {
   outline: 1px solid red;
   border-radius: 0.5rem;
@@ -461,6 +468,40 @@ footer .footer-underlink ul li a:hover {
 
 .success {
   outline: none;
+=======
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.thanks h3 {
+  color: rgb(0, 0, 0);
+  padding-top: 1rem;
+  text-shadow: 3px 3px 6px rgb(243, 238, 238);
+  font-size: 1.5rem;
+  -webkit-animation: fadeIn 3s;
+          animation: fadeIn 3s;
+}
+.thanks h4 {
+  font-size: 1rem;
+  padding-top: 1.2rem;
+  color: rgb(0, 0, 0);
+  text-shadow: 3px 3px 6px rgb(234, 230, 230);
+  -webkit-animation: fadeIn 6s;
+          animation: fadeIn 6s;
+>>>>>>> Shayan
 }
 
 .errands-main {
@@ -711,14 +752,6 @@ footer .footer-underlink ul li a:hover {
 .sign-up .error {
   border: 2px solid red;
   border-radius: 0.5rem;
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 @keyframes fadeIn {
   0% {
