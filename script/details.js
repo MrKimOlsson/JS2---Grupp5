@@ -2,13 +2,14 @@ const id = new URLSearchParams(window.location.search).get('id')
 const btnSubmitDetails = document.querySelector('#d-submit')
 const detailsForm = document.querySelector('#detailsForm')
 const errands = []
+let statusID = "";
 
 console.log(id)
 
 const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
+const COMMENT_URL = 'https://fnd22-shared.azurewebsites.net/api/Comments';
 
 const output = document.querySelector('#output');
-
 
 const getPost = async () => {
   
@@ -25,71 +26,65 @@ getPost()
 
 // Create card to display post from DB
 const createCardElement = (post) => {
-  const card = document.createElement('div')
-  card.className = 'card'
+  const cardDetails = document.createElement('div')
+  cardDetails.className = 'cardDetails'
 
-  const subject = document.createElement('h2')
+  const cardHeader = document.createElement('div')
+  cardHeader.className = 'cardHeader'
+
+  const messageDiv = document.createElement('div')
+  messageDiv.className = 'messageDiv'
+
+  const mailDiv = document.createElement('div')
+  mailDiv.className = 'mailDiv'
+
+  const subject = document.createElement('h3')
   subject.innerText = post.subject
+
+  const time = document.createElement('p')
+  time.innerText = post.created
+
+  const messageHeading = document.createElement('p')
+  messageHeading.innerHTML = '<b>Message: </b>'
 
   const message = document.createElement('p')
   message.innerText = post.message
 
+  const mailHeading = document.createElement('p')
+  mailHeading.innerHTML = '<b>Email: </b>'
+
   const email = document.createElement('p')
   email.innerText = post.email
-
-  card.appendChild(subject)
-  card.appendChild(message)
-  card.appendChild(email)
 
 
   // ADD DIV FOR STATUS
   const statusSection = document.createElement('div')
   statusSection.classList.add('statusSection');
-  card.appendChild(statusSection)
+  
+
+  const statusHeading = document.createElement('p')
+  statusHeading.innerHTML = '<b>Status: </b>'
 
   const status = document.createElement('p')
-    status.classList.add('errand_status')
-    status.innerText = post.status.statusName
+  status.classList.add('errand_status')
+  status.innerText = post.status.statusName
 
-    // Status color
-    let statusColor = document.createElement('div')
-      statusColor.classList.add('statusColor')
+  // cardDetails.appendChild(statusSection)
 
-    if(post.statusId == 3) {
-      statusColor.classList.add('green')
-    }
-    else if(post.statusId == 2) {
-      statusColor.classList.add('yellow')
-    }
-    else {
-      statusColor.classList.add('red')
-    }
+  // Status color
+  let statusColor = document.createElement('div')
+    statusColor.classList.add('statusColor')
 
-  statusSection.appendChild(status)
-  statusSection.appendChild(statusColor)
-
-
-  // DISPLAY COMMENT AND MODIFIED DATE
-  // If no comment but modified
-  if(post.comment == undefined && post.modified !== post.created) {
-    details.innerHTML += `
-          <p><b>Created:</b> ${data.modified}</p><br>
-      `
+  if(post.statusId == 3) {
+    statusColor.classList.add('green')
   }
-  // If comment but not modified
-  else if (post.modified == post.created && post.comment !== undefined) {
-    details.innerHTML += `
-        <p><b>Comment:</b> ${post.comment}</p><br>
-    `
+  else if(post.statusId == 2) {
+    statusColor.classList.add('yellow')
   }
-  // Both modified and had a comment
-  else if(post.comment !== undefined && post.modified !== post.created) {
-    details.innerHTML += `
-        <p><b>Comment:</b> ${post.comment}</p><br>
-        <p><b>Modified:</b> ${post.modified}</p><br>
-    `
+  else {
+    statusColor.classList.add('red')
   }
-
+    
   // ADD INPUT FORM TO DETAILS CARD
   const detailsForm = document.createElement('form')
   detailsForm.setAttribute("id", "detailsForm");
@@ -124,6 +119,65 @@ const createCardElement = (post) => {
    statusDone.setAttribute("id", "done");
    statusDone.classList.add('statusRadio')
 
+  
+   // Add Comment text input
+  let comment = document.createElement('INPUT')
+  comment.setAttribute("type", "text");
+  comment.setAttribute("id", "comment");
+  comment.classList.add('textInput');
+
+   // Add mail text input
+   let commentEmail = document.createElement('INPUT')
+   commentEmail.setAttribute("type", "text");
+   commentEmail.setAttribute("id", "commentEmail");
+   commentEmail.classList.add('textInput');
+
+  //  Add submit button to details form
+  let detailsSubmit = document.createElement('button');
+  detailsSubmit.setAttribute("name", "btb-d-submit");
+  detailsSubmit.setAttribute("value", "submitDetails");
+  detailsSubmit.setAttribute("id", "d-submit");
+  detailsSubmit.innerText = "Submit";
+  detailsSubmit.classList.add('cardButtons')
+  detailsSubmit.classList.add('btnSubmitDetails');
+
+  //  Add close button to details card
+  let btnCloseDetails = document.createElement('button');
+  btnCloseDetails.setAttribute("name", "close-details");
+  btnCloseDetails.setAttribute("id", "btn-close-details");
+  btnCloseDetails.setAttribute("onclick", "window.location.href='errands.html'");
+  btnCloseDetails.innerText = "Close";
+  btnCloseDetails.classList.add('cardButtons')
+  btnCloseDetails.classList.add('btnCloseDetails');
+
+
+  // Display everything on the card
+  cardDetails.appendChild(cardHeader)
+  cardHeader.appendChild(subject)
+  cardHeader.appendChild(time)
+  cardDetails.appendChild(messageDiv)
+  messageDiv.appendChild(messageHeading)
+  messageDiv.appendChild(message)
+  cardDetails.appendChild(mailDiv)
+  mailDiv.appendChild(mailHeading)
+  mailDiv.appendChild(email)
+  cardDetails.appendChild(statusSection)
+  statusSection.appendChild(statusHeading)
+  statusSection.appendChild(status)
+  statusSection.appendChild(statusColor)
+
+  // Loop through the comments array
+  // For each comment:
+  // Print comment message and date of each comment
+  post.comments.forEach(comment => {
+    console.log("Comments: " + comment.message)
+    cardDetails.innerHTML += `
+      <p><b>Comment:</b> ${comment.message}</p><br>
+      <p><b>Time:</b> ${comment.created}</p><br>
+  `
+  });
+
+  // Display radio section
   radioSection.innerHTML += `<h4>Change status:</h4>`
   radioSection.innerHTML += `<p>Not started:</p>`
   radioSection.appendChild(statusNotStarted)
@@ -132,66 +186,102 @@ const createCardElement = (post) => {
   radioSection.innerHTML += `<p>Done:</p>`
   radioSection.appendChild(statusDone)
 
-   // Add Comment text input
-  let comment = document.createElement('INPUT')
-  comment.setAttribute("type", "text");
-  comment.setAttribute("id", "comment");
-  comment.classList.add('comment');
-
-  //  Add submit button to details form
-  let detailsSubmit = document.createElement('button');
-  detailsSubmit.setAttribute("name", "btb-d-submit");
-  detailsSubmit.setAttribute("value", "submitDetails");
-  detailsSubmit.setAttribute("id", "d-submit");
-  detailsSubmit.innerText = "Submit";
-  detailsSubmit.classList.add('btn-d-submit')
-
   // Add heading, comment input, radioSection & submit btn to detailsForm
   detailsForm.innerHTML += `<h4>Comment:</h4>`
   detailsForm.appendChild(comment)
+  detailsForm.innerHTML += `<h5>Email:</h5>`
+  detailsForm.appendChild(commentEmail)
   detailsForm.appendChild(radioSection)
   detailsForm.appendChild(detailsSubmit)
   
   // Add detailsForm to card
-  card.appendChild(detailsForm)
-  detailsForm.addEventListener('submit', handleSubmit)
+  cardDetails.appendChild(detailsForm)
+  cardDetails.appendChild(btnCloseDetails)
 
-  // Check status checked in radio
-  // save checked status in variable
-  // pass in to POST object
-
-  return card
+  // Add event listener to the comment form
+  // btnCloseDetails.addEventListener('click', href="errands.html")
+  detailsForm.addEventListener('submit', commentSubmit)
+  return cardDetails
 }
-
-// TO DO:
-// GET ID AND ADD TO URL
-// CONTROL METHOD TYPE
-
-
 
 // Handle submit
-
-const handleSubmit = e => {
+const commentSubmit = e => {
+  // prevent reload
   e.preventDefault()
-  // tbd Validera formuläret.
-  console.log(postID);
-  const newChange = {
-    comments: document.querySelector('#comment').value,
-    statusID: document.querySelector('#status').value,
-    }
+
+  console.log(e.target.comment.value);
+  console.log(e.target);
+
+  // declair variables
+  let statusID = 0;
+  let comment = "";
   
+  // Check if there is a comment to submit
+  if(e.target.comment.value == "") {
+    console.log("No comment to submit - Add a comment")
+  }
 
-  fetch(BASE_URL, {
-  method: 'POST',
-  body: JSON.stringify(newChange),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
+  console.log("Comment: " + e.target.comment.value)
+  comment = e.target.comment.value
+  console.log(comment);
+
+  // Check what to change status ID into
+  // if status: not started
+  if(e.target.notStarted.checked){
+    console.log("Set status: not started")
+    statusID = 1;
+  }
+  // if status: pending
+  else if(e.target.pending.checked){
+    console.log("Set status: pending")
+    statusID = 2;
+  }
+  // if status done
+  else if(e.target.done.checked){
+    console.log("Set status: done")
+    statusID = 3;
+  }
+  
+  // Info to change status ID
+  let changeID = {
+    id: id,
+    statusID: statusID,
+  }
+
+  // Options for fetch method
+  let options = {
+    method: "PUT",
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(changeID)
+  }
+
+  // Fetch method to change status ID
+  fetch(BASE_URL+id, options)
   .then((response) => response.json())
-  .then((data) => {
 
-    errands.push(data)
-  });
+  // COMMENT
+
+  // Comment post payload - CONTENT TO POST
+  const addComment = {
+    caseID: id,
+    email: document.querySelector('#commentEmail').value,
+    message: comment,
+  }
+
+  // Options for fetch method
+  let commentOptions = {
+    method: "POST",
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(addComment)
+  }
+
+  // Fetch method to change status ID
+  fetch(COMMENT_URL, commentOptions)
+  .then((commentRes) => console.log(commentRes)) 
+  e.target.comment.value == ""
+  e.target.email.value == ""  
 }
-

@@ -1,0 +1,73 @@
+.content-wrapper {
+    @include flex(column, center, center);
+    @include size(100%, 100%);
+
+    // border: 2px solid green;
+    
+    .iframe-wrapper {
+        @include size(100%, 50vh);
+        
+        .iframe {
+            @include size(100%, 100%);
+            border: 0;
+        }
+    }
+    .contact-info-wrapper {
+        @include flex(column, center, center);
+        @include size(100%, 80vh);
+
+        // border: 1px solid red;
+
+        .contact-info-main-box {
+            @include flex(row, center, center);
+            @include size(65%, 100%);
+            margin: 1rem 0 1rem 0;
+            border-radius: 1rem;
+            box-shadow: 3px 3px 3px #00000060;
+
+            .contact-info-left-box {
+                @include flex(column, space-evenly, center);
+                @include size(100%, 100%);
+
+                background-color: #fff;
+                border-radius: 1rem 0 0 1rem;
+                // border: 1px solid blue;
+    
+                .content-info-left-box-inner {
+                    @include flex(row, flex-start, center);
+                    @include size(100%, 15%);
+    
+                    // border: 1px solid orange;
+                    
+    
+                    .content-info-icon {
+                        @include flex(row, center, center);
+                        @include size(25%, 100%);
+                        margin-left: 4rem;
+                        margin-right: 1rem;
+                        // border: 2px solid darkgreen;
+                        border-radius: 50%;
+                        background-color: rgba(128, 128, 128, 0.322);
+                    }
+                    .content-info-text {
+                        @include flex(column, space-evenly, flex-start);
+                        @include size(100%, 100%);
+                        padding: 1rem;
+    
+                        // border: 2px solid darkblue;
+                    }
+                }
+            }
+            .contact-info-right-box {
+                @include flex(column, center, center);
+                @include size(100%, 100%);
+                // padding: 1rem 1rem 1rem 0;
+                background-color: hsl(235, 57%, 37%);
+                color: #fff;
+    
+                // border: 1px solid purple;
+                border-radius: 0 1rem 1rem 0;
+            }
+        }
+    }
+}

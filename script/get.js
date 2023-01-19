@@ -2,16 +2,12 @@ const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
 console.log(BASE_URL);
 const errands = []
 
-
 const output = document.querySelector('#output');
-
-
 
 const getPosts = async () => {
   const res = await fetch(BASE_URL)
   const posts = await res.json()
   const sortedPosts = sortPosts(posts);
-
 
   sortedPosts.forEach(post => {
     errands.push(post)
@@ -26,20 +22,18 @@ const sortPosts = (posts) => {
   return posts.sort((a, b) => {
     return new Date(b.created) - new Date(a.created);
   });
-
 }
-
 
 getPosts()
 
 const createCardElement = (post) => {
   const card = document.createElement('a')
-  card.className = 'card'
+  card.className = 'cardListErrands'
 
   // card.href = `details.html?id=${post.id}`
   card.setAttribute('href', `details.html?id=${post.id}`)
 
-  const subject = document.createElement('h2')
+  const subject = document.createElement('h3')
   subject.innerText = post.subject
 
   const message = document.createElement('p')

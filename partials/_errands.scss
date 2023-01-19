@@ -1,31 +1,54 @@
-  
-.errands-main{
-    height: 100%;
-
-}
-  
-.container {
-    width: 80%;
-    margin: 3rem auto;
-}
-
-.errand {
-    background-color: $card-bg;
-    margin-block: 1rem;
-    padding: 1rem;
-    box-shadow: $errand-shadow;
+// Card to display errands
+.cardListErrands {
+    display: block;
+    background-color: #fff;
+    box-shadow: 3px 3px 9px #00000039;
     border-radius: 1rem;
+    padding: 3rem 4rem;
+    width: 50vw;
+    margin-top: 2rem;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+
+    h3{
+        margin-bottom: 2rem;
+    }
+    p{
+        margin-bottom: 1rem;
+    }
+
+    .statusColor {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+    }
+
+    .green {
+        background-color: green;
+    }
+    
+    .yellow {
+        background-color: yellow;
+    }
+    
+    .red {
+        background-color: red;
+    }
 }
 
-.errand h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-}
+// .errands-main{
+//     height: 100%;
 
-.errand p {
-    font-size: 1rem;
-    margin-bottom: .3rem;
-}
+// }
+  
+// .container {
+//     width: 80%;
+//     margin: 3rem auto;
+// }
+
+
 
 .errand_subject {
     font-size: 3rem;
@@ -63,31 +86,8 @@ pointer-events: none;
     }
 }
 
-.statusColor {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
-}
-.green {
-    background-color: green;
-}
 
-.yellow {
-    background-color: yellow;
-}
 
-.red {
-    background-color: red;
-}
-
-.btnCloseDetails {
-    position: relative;
-    top: 2rem;
-    width: 25px;
-    height: 25px;
-    margin-bottom: 2rem;
-}
 
 .statusPending {
     margin-left: 1rem;
