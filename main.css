@@ -47,6 +47,9 @@ header .up-header ul li a {
 header .up-header ul li a:hover {
   text-decoration: underline;
 }
+header .up-header ul li .active {
+  text-decoration: underline;
+}
 header .down-header {
   width: 100%;
   background-color: rgb(255, 255, 255);
@@ -84,6 +87,9 @@ header .down-header .down-navbar ul li a {
   font-size: 2rem;
 }
 header .down-header .down-navbar ul li a:hover {
+  text-decoration: underline;
+}
+header .down-header .down-navbar ul li .active {
   text-decoration: underline;
 }
 
@@ -455,7 +461,7 @@ footer .footer-underlink ul li a:hover {
 }
 .conact-form-wrap .input-group {
   margin-bottom: 1rem;
-  width: 49%;
+  width: 100%;
 }
 .conact-form-wrap .input-group label {
   font-weight: bold;
