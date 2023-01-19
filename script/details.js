@@ -26,31 +26,50 @@ getPost()
 
 // Create card to display post from DB
 const createCardElement = (post) => {
-  const card = document.createElement('div')
-  card.className = 'card'
+  const cardDetails = document.createElement('div')
+  cardDetails.className = 'cardDetails'
+
+  const cardHeader = document.createElement('div')
+  cardHeader.className = 'cardHeader'
+
+  const messageDiv = document.createElement('div')
+  messageDiv.className = 'messageDiv'
+
+  const mailDiv = document.createElement('div')
+  mailDiv.className = 'mailDiv'
 
   const subject = document.createElement('h3')
   subject.innerText = post.subject
 
+  const time = document.createElement('p')
+  time.innerText = post.created
+
+  const messageHeading = document.createElement('p')
+  messageHeading.innerHTML = '<b>Message: </b>'
+
   const message = document.createElement('p')
   message.innerText = post.message
 
+  const mailHeading = document.createElement('p')
+  mailHeading.innerHTML = '<b>Email: </b>'
+
   const email = document.createElement('p')
   email.innerText = post.email
-
-  card.appendChild(subject)
-  card.appendChild(message)
-  card.appendChild(email)
 
 
   // ADD DIV FOR STATUS
   const statusSection = document.createElement('div')
   statusSection.classList.add('statusSection');
-  card.appendChild(statusSection)
+  
+
+  const statusHeading = document.createElement('p')
+  statusHeading.innerHTML = '<b>Status: </b>'
 
   const status = document.createElement('p')
   status.classList.add('errand_status')
   status.innerText = post.status.statusName
+
+  // cardDetails.appendChild(statusSection)
 
   // Status color
   let statusColor = document.createElement('div')
@@ -65,21 +84,6 @@ const createCardElement = (post) => {
   else {
     statusColor.classList.add('red')
   }
-
-  // Add children to parent
-  statusSection.appendChild(status)
-  statusSection.appendChild(statusColor)
-
-  // Loop through the comments array
-  // For each comment:
-  // Print comment message and date of each comment
-  post.comments.forEach(comment => {
-    console.log("Comments: " + comment.message)
-    card.innerHTML += `
-      <p><b>Comment:</b> ${comment.message}</p><br>
-      <p><b>Time:</b> ${comment.created}</p><br>
-  `
-  });
     
   // ADD INPUT FORM TO DETAILS CARD
   const detailsForm = document.createElement('form')
@@ -115,6 +119,64 @@ const createCardElement = (post) => {
    statusDone.setAttribute("id", "done");
    statusDone.classList.add('statusRadio')
 
+  
+   // Add Comment text input
+  let comment = document.createElement('INPUT')
+  comment.setAttribute("type", "text");
+  comment.setAttribute("id", "comment");
+  comment.classList.add('textInput');
+
+   // Add mail text input
+   let commentEmail = document.createElement('INPUT')
+   commentEmail.setAttribute("type", "text");
+   commentEmail.setAttribute("id", "commentEmail");
+   commentEmail.classList.add('textInput');
+
+  //  Add submit button to details form
+  let detailsSubmit = document.createElement('button');
+  detailsSubmit.setAttribute("name", "btb-d-submit");
+  detailsSubmit.setAttribute("value", "submitDetails");
+  detailsSubmit.setAttribute("id", "d-submit");
+  detailsSubmit.innerText = "Submit";
+  detailsSubmit.classList.add('cardButtons')
+  detailsSubmit.classList.add('btnSubmitDetails');
+
+  //  Add close button to details card
+  let btnCloseDetails = document.createElement('button');
+  btnCloseDetails.setAttribute("name", "close-details");
+  btnCloseDetails.setAttribute("id", "btn-close-details");
+  btnCloseDetails.setAttribute("onclick", "window.location.href='errands.html'");
+  btnCloseDetails.innerText = "Close";
+  btnCloseDetails.classList.add('cardButtons')
+  btnCloseDetails.classList.add('btnCloseDetails');
+
+
+  // Display everything on the card
+  cardDetails.appendChild(cardHeader)
+  cardHeader.appendChild(subject)
+  cardHeader.appendChild(time)
+  cardDetails.appendChild(messageDiv)
+  messageDiv.appendChild(messageHeading)
+  messageDiv.appendChild(message)
+  cardDetails.appendChild(mailDiv)
+  mailDiv.appendChild(mailHeading)
+  mailDiv.appendChild(email)
+  cardDetails.appendChild(statusSection)
+  statusSection.appendChild(statusHeading)
+  statusSection.appendChild(status)
+  statusSection.appendChild(statusColor)
+
+  // Loop through the comments array
+  // For each comment:
+  // Print comment message and date of each comment
+  post.comments.forEach(comment => {
+    console.log("Comments: " + comment.message)
+    cardDetails.innerHTML += `
+      <p><b>Comment:</b> ${comment.message}</p><br>
+      <p><b>Time:</b> ${comment.created}</p><br>
+  `
+  });
+
   // Display radio section
   radioSection.innerHTML += `<h4>Change status:</h4>`
   radioSection.innerHTML += `<p>Not started:</p>`
@@ -123,26 +185,6 @@ const createCardElement = (post) => {
   radioSection.appendChild(statusPending)
   radioSection.innerHTML += `<p>Done:</p>`
   radioSection.appendChild(statusDone)
-
-   // Add Comment text input
-  let comment = document.createElement('INPUT')
-  comment.setAttribute("type", "text");
-  comment.setAttribute("id", "comment");
-  comment.classList.add('comment');
-
-   // Add mail text input
-   let commentEmail = document.createElement('INPUT')
-   commentEmail.setAttribute("type", "text");
-   commentEmail.setAttribute("id", "commentEmail");
-   commentEmail.classList.add('CommentEmail');
-
-  //  Add submit button to details form
-  let detailsSubmit = document.createElement('button');
-  detailsSubmit.setAttribute("name", "btb-d-submit");
-  detailsSubmit.setAttribute("value", "submitDetails");
-  detailsSubmit.setAttribute("id", "d-submit");
-  detailsSubmit.innerText = "Submit";
-  detailsSubmit.classList.add('btn-d-submit')
 
   // Add heading, comment input, radioSection & submit btn to detailsForm
   detailsForm.innerHTML += `<h4>Comment:</h4>`
@@ -153,11 +195,13 @@ const createCardElement = (post) => {
   detailsForm.appendChild(detailsSubmit)
   
   // Add detailsForm to card
-  card.appendChild(detailsForm)
+  cardDetails.appendChild(detailsForm)
+  cardDetails.appendChild(btnCloseDetails)
 
   // Add event listener to the comment form
+  // btnCloseDetails.addEventListener('click', href="errands.html")
   detailsForm.addEventListener('submit', commentSubmit)
-  return card
+  return cardDetails
 }
 
 // Handle submit
@@ -237,5 +281,7 @@ const commentSubmit = e => {
 
   // Fetch method to change status ID
   fetch(COMMENT_URL, commentOptions)
-  .then((commentRes) => console.log(commentRes))   
+  .then((commentRes) => console.log(commentRes)) 
+  e.target.comment.value == ""
+  e.target.email.value == ""  
 }

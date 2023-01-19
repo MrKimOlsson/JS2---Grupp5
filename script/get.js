@@ -28,12 +28,12 @@ getPosts()
 
 const createCardElement = (post) => {
   const card = document.createElement('a')
-  card.className = 'card'
+  card.className = 'cardListErrands'
 
   // card.href = `details.html?id=${post.id}`
   card.setAttribute('href', `details.html?id=${post.id}`)
 
-  const subject = document.createElement('h2')
+  const subject = document.createElement('h3')
   subject.innerText = post.subject
 
   const message = document.createElement('p')
