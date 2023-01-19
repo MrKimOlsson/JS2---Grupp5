@@ -12,8 +12,8 @@ const message = document.querySelector('#message');
 // Handle submit
 const handleSubmit = e => {
     e.preventDefault();
-    // tbd Validera formuläret.
 
+    // Form validation
 const subject = document.querySelector('#subject');
 const email = document.querySelector('#email');
 const message = document.querySelector('#message');
@@ -135,14 +135,12 @@ if(errors.includes(false)) {
 }
 console.log('gick fint')
 
-
     const newErrand = {
       subject: subject.value,
       email: email.value,
       message: message.value,
       }
     
-  
     fetch(BASE_URL, {
     method: 'POST',
     body: JSON.stringify(newErrand),
@@ -150,19 +148,13 @@ console.log('gick fint')
       'Content-type': 'application/json; charset=UTF-8',
     },
   })
+  
     .then((response) => response.json())
     .then((data) => {
   
       errands.push(data)
-    //   const errandElement = createCardElement(data)
-    //   errandList.appendChild(errandElement)
     });
-
   }
   
-//   userList.addEventListener('click', removeUser)
-  form.addEventListener('submit', handleSubmit)
-
-
-  
+  form.addEventListener('submit', handleSubmit) 
   
