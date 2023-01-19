@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(17, 26, 91);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -14,19 +14,9 @@ main {
   flex-direction: column;
   justify-content: none;
   align-items: center;
-}
-
-.card {
-  display: block;
-  background-color: #fff;
-  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
-  border-radius: 1rem;
-  padding: 3rem 4rem;
-  width: 80vw;
-  margin-top: 1rem;
-}
-.card h2 {
-  margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(230, 230, 230);
 }
 
 header {
@@ -99,9 +89,7 @@ header .down-header .down-navbar ul li a:hover {
 footer {
   position: relative;
   bottom: 0;
-  height: auto;
   width: 100%;
-  height: 100%;
   background-color: rgb(17, 26, 91);
   display: flex;
   flex-direction: column;
@@ -343,6 +331,93 @@ footer .footer-underlink ul li a:hover {
   font-size: 16px;
 }
 
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.content-wrapper .iframe-wrapper {
+  width: 100%;
+  height: 50vh;
+}
+.content-wrapper .iframe-wrapper .iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.content-wrapper .contact-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+}
+.content-wrapper .contact-info-wrapper .contact-info-main-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  height: 100%;
+  margin: 1rem 0 1rem 0;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3764705882);
+}
+.content-wrapper .contact-info-wrapper .contact-info-main-box .contact-info-left-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 1rem 0 0 1rem;
+}
+.content-wrapper .contact-info-wrapper .contact-info-main-box .contact-info-left-box .content-info-left-box-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+}
+.content-wrapper .contact-info-wrapper .contact-info-main-box .contact-info-left-box .content-info-left-box-inner .content-info-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  margin-left: 4rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.322);
+}
+.content-wrapper .contact-info-wrapper .contact-info-main-box .contact-info-left-box .content-info-left-box-inner .content-info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+.content-wrapper .contact-info-wrapper .contact-info-main-box .contact-info-right-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(235deg, 57%, 37%);
+  color: #fff;
+  border-radius: 0 1rem 1rem 0;
+}
+
 .conact-form-wrap {
   display: flex;
   flex-direction: column;
@@ -465,31 +540,38 @@ footer .footer-underlink ul li a:hover {
   outline: none;
 }
 
-.errands-main {
-  height: 100%;
-}
-
-.container {
-  width: 80%;
-  margin: 3rem auto;
-}
-
-.errand {
+.cardListErrands {
+  display: block;
   background-color: #fff;
-  margin-block: 1rem;
-  padding: 1rem;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
   border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 50vw;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
-
-.errand h3 {
-  font-size: 1.6rem;
+.cardListErrands h3 {
+  margin-bottom: 2rem;
+}
+.cardListErrands p {
   margin-bottom: 1rem;
 }
-
-.errand p {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
+.cardListErrands .statusColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.cardListErrands .green {
+  background-color: green;
+}
+.cardListErrands .yellow {
+  background-color: yellow;
+}
+.cardListErrands .red {
+  background-color: red;
 }
 
 .errand_subject {
@@ -526,33 +608,6 @@ footer .footer-underlink ul li a:hover {
   margin-bottom: 0.3rem;
 }
 
-.statusColor {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
-}
-
-.green {
-  background-color: green;
-}
-
-.yellow {
-  background-color: yellow;
-}
-
-.red {
-  background-color: red;
-}
-
-.btnCloseDetails {
-  position: relative;
-  top: 2rem;
-  width: 25px;
-  height: 25px;
-  margin-bottom: 2rem;
-}
-
 .statusPending {
   margin-left: 1rem;
 }
@@ -561,42 +616,101 @@ footer .footer-underlink ul li a:hover {
   margin-left: 1rem;
 }
 
-.statusSection {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-  border-bottom: 1px solid rgb(99, 99, 99);
+#output h2 {
+  margin-top: 3rem;
+  text-align: center;
 }
-
-.details_form {
+#output .cardDetails {
+  display: block;
+  background-color: #fff;
+  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 50vw;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  margin-bottom: 6rem;
+}
+#output .cardDetails .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.705);
+  margin-bottom: 2rem;
+}
+#output .cardDetails .cardHeader h3 {
+  font-size: 1.5rem;
+}
+#output .cardDetails .cardHeader p {
+  font-weight: bold;
+}
+#output .cardDetails p {
+  margin-bottom: 1rem;
+}
+#output .cardDetails .details_form {
   display: flex;
   flex-direction: column;
   padding-top: 2rem;
 }
-.details_form .btn-d-submit {
-  height: 2rem;
-  border-radius: 1rem;
-  border: none;
-  margin-top: 2rem;
-  box-shadow: 1px 1px 3px #000;
-  transition: all 1s ease;
+#output .cardDetails .details_form .textInput {
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  border-style: none;
+  box-shadow: inset 0.5px 0.5px 2.5px #000;
 }
-.details_form .btn-d-submit:hover {
-  background-color: lightgray;
+#output .cardDetails .details_form .textInput:focus {
+  border: transparent;
+  border-style: none;
 }
-.details_form .btn-d-submit:active {
-  box-shadow: 1px 1px 2px #000;
-}
-
-.radioSection {
+#output .cardDetails .details_form .statusSection {
   display: flex;
-  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rem;
+  border-bottom: 1px solid rgb(99, 99, 99);
 }
-.radioSection p {
+#output .cardDetails .details_form .radioSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+#output .cardDetails .details_form .radioSection p {
+  text-align: center;
+  align-items: center;
   padding-left: 1rem;
   padding-right: 0.5rem;
+}
+#output .cardDetails .details_form .btnSubmitDetails:hover {
+  background-color: rgba(21, 128, 0, 0.5);
+}
+#output .cardDetails .details_form .btnSubmitDetails:active {
+  background-color: rgb(21, 128, 0);
+}
+#output .cardDetails .cardButtons {
+  height: 2rem;
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.199);
+  font-weight: bold;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.76);
+  transition: all 300ms ease;
+  margin-top: 1rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+#output .cardDetails .cardButtons:active {
+  box-shadow: 1px 1px 2px #000;
+}
+#output .cardDetails .btnCloseDetails:hover {
+  background-color: rgba(190, 0, 0, 0.5);
+}
+#output .cardDetails .btnCloseDetails:active {
+  background-color: rgb(190, 0, 0);
 }
 
 .sign-up {
