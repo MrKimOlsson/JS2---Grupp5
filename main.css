@@ -460,7 +460,7 @@ footer .footer-underlink ul li a:hover {
 }
 .conact-form-wrap .input-group {
   margin-bottom: 1rem;
-  width: 49%;
+  width: 100%;
 }
 .conact-form-wrap .input-group label {
   font-weight: bold;
