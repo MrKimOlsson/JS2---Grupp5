@@ -13,6 +13,7 @@ main {
 @include flex(column, none, center);
 @include size(100%, 100%);
 background-color: $body-bg;
+padding-bottom: 4rem;
 }
 
 

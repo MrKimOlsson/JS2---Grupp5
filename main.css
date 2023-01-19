@@ -16,7 +16,8 @@ main {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(221, 221, 221);
+  padding-bottom: 4rem;
 }
 
 header {
@@ -546,7 +547,11 @@ footer .footer-underlink ul li a:hover {
   outline: none;
 }
 
-.cardListErrands {
+#output h2 {
+  margin-top: 3rem;
+  text-align: center;
+}
+#output .cardListErrands {
   display: block;
   background-color: #fff;
   box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2235294118);
@@ -558,45 +563,67 @@ footer .footer-underlink ul li a:hover {
   color: black;
   cursor: pointer;
 }
-.cardListErrands h3 {
-  margin-bottom: 2rem;
-}
-.cardListErrands p {
+#output .cardListErrands p {
   margin-bottom: 1rem;
 }
-.cardListErrands .statusColor {
+#output .cardListErrands .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.705);
+  margin-bottom: 2rem;
+}
+#output .cardListErrands .cardHeader h3 {
+  font-size: 1.5rem;
+}
+#output .cardListErrands .cardHeader p {
+  font-weight: bold;
+  margin-top: 9px;
+}
+#output .cardListErrands .messageDiv, #output .cardListErrands .mailDiv, #output .cardListErrands .statusSection {
+  display: flex;
+}
+#output .cardListErrands .messageDiv p, #output .cardListErrands .mailDiv p, #output .cardListErrands .statusSection p {
+  margin-right: 0.5rem;
+}
+#output .cardListErrands .statusSection {
+  display: flex;
+  border-bottom: 1px solid rgb(99, 99, 99);
+  padding-bottom: 1rem;
+}
+#output .cardListErrands .statusSection p {
+  margin-right: 0.5rem;
+}
+#output .cardListErrands .statusSection .statusColor {
+  position: relative;
+  top: 6px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
-.cardListErrands .green {
+#output .cardListErrands .statusSection .green {
   background-color: green;
 }
-.cardListErrands .yellow {
+#output .cardListErrands .statusSection .yellow {
   background-color: yellow;
 }
-.cardListErrands .red {
+#output .cardListErrands .statusSection .red {
   background-color: red;
 }
-
-.errand_subject {
+#output .errand_subject {
   font-size: 3rem;
   font-weight: bold;
 }
-
-.errand_message,
-.errand_email {
+#output .errand_message,
+#output .errand_email {
   font-size: 0.7em;
 }
-
-.errand_name,
-.errand_message,
-.errand_email {
+#output .errand_name,
+#output .errand_message,
+#output .errand_email {
   pointer-events: none;
 }
-
-.details {
+#output .details {
   width: 100%;
   height: 60vh;
   background-color: white;
@@ -605,20 +632,18 @@ footer .footer-underlink ul li a:hover {
   margin-top: 1rem;
   padding: 2rem;
 }
-.details h3 {
+#output .details h3 {
   font-size: 1.6rem;
   margin-bottom: 2.5rem;
 }
-.details p {
+#output .details p {
   font-size: 1rem;
   margin-bottom: 0.3rem;
 }
-
-.statusPending {
+#output .statusPending {
   margin-left: 1rem;
 }
-
-.statusDone {
+#output .statusDone {
   margin-left: 1rem;
 }
 
@@ -637,7 +662,10 @@ footer .footer-underlink ul li a:hover {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
+}
+#output .cardDetails p {
+  margin-bottom: 1rem;
 }
 #output .cardDetails .cardHeader {
   display: flex;
@@ -650,14 +678,43 @@ footer .footer-underlink ul li a:hover {
 }
 #output .cardDetails .cardHeader p {
   font-weight: bold;
+  margin-top: 9px;
 }
-#output .cardDetails p {
-  margin-bottom: 1rem;
+#output .cardDetails .messageDiv, #output .cardDetails .mailDiv, #output .cardDetails .statusSection {
+  display: flex;
+}
+#output .cardDetails .messageDiv p, #output .cardDetails .mailDiv p, #output .cardDetails .statusSection p {
+  margin-right: 0.5rem;
+}
+#output .cardDetails .statusSection {
+  display: flex;
+  border-bottom: 1px solid rgb(99, 99, 99);
+  padding-bottom: 1rem;
+}
+#output .cardDetails .statusSection p {
+  margin-right: 0.5rem;
+}
+#output .cardDetails .statusSection .statusColor {
+  position: relative;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+#output .cardDetails .statusSection .green {
+  background-color: green;
+}
+#output .cardDetails .statusSection .yellow {
+  background-color: yellow;
+}
+#output .cardDetails .statusSection .red {
+  background-color: red;
 }
 #output .cardDetails .details_form {
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 #output .cardDetails .details_form .textInput {
   margin-top: 0.3rem;
@@ -671,23 +728,15 @@ footer .footer-underlink ul li a:hover {
   border: transparent;
   border-style: none;
 }
-#output .cardDetails .details_form .statusSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 10rem;
-  border-bottom: 1px solid rgb(99, 99, 99);
-}
 #output .cardDetails .details_form .radioSection {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  text-align: center;
+}
+#output .cardDetails .details_form .radioSection h4 {
+  margin-top: 12px;
 }
 #output .cardDetails .details_form .radioSection p {
-  text-align: center;
-  align-items: center;
+  margin-top: 12px;
   padding-left: 1rem;
   padding-right: 0.5rem;
 }

@@ -41,8 +41,10 @@ const createCardElement = (post) => {
   const subject = document.createElement('h3')
   subject.innerText = post.subject
 
-  const time = document.createElement('p')
-  time.innerText = post.created
+  const time = document.createElement('p');
+  const date = new Date(post.created);
+  time.innerText = date.toLocaleString()
+  time.classList.add('timeText');
 
   const messageHeading = document.createElement('p')
   messageHeading.innerHTML = '<b>Message: </b>'
@@ -69,10 +71,10 @@ const createCardElement = (post) => {
   status.classList.add('errand_status')
   status.innerText = post.status.statusName
 
-  // cardDetails.appendChild(statusSection)
+  
 
   // Status color
-  let statusColor = document.createElement('div')
+  const statusColor = document.createElement('div')
     statusColor.classList.add('statusColor')
 
   if(post.statusId == 3) {
@@ -85,6 +87,8 @@ const createCardElement = (post) => {
     statusColor.classList.add('red')
   }
     
+  cardDetails.appendChild(statusSection)
+  statusSection.appendChild(statusColor)
   // ADD INPUT FORM TO DETAILS CARD
   const detailsForm = document.createElement('form')
   detailsForm.setAttribute("id", "detailsForm");

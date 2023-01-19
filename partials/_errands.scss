@@ -1,98 +1,141 @@
 // Card to display errands
-.cardListErrands {
-    display: block;
-    background-color: #fff;
-    box-shadow: 3px 3px 9px #00000039;
-    border-radius: 1rem;
-    padding: 3rem 4rem;
-    width: 50vw;
-    margin-top: 2rem;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+#output{
 
-    h3{
-        margin-bottom: 2rem;
-    }
-    p{
-        margin-bottom: 1rem;
+    h2{
+        margin-top:3rem;
+        text-align: center;
     }
 
-    .statusColor {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+    .cardListErrands {
+        display: block;
+        background-color: #fff;
+        box-shadow: 3px 3px 9px #00000039;
+        border-radius: 1rem;
+        padding: 3rem 4rem;
+        width: 50vw;
+        margin-top: 2rem;
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+
+        p{
+            margin-bottom: 1rem;
+        }
+
+        .cardHeader {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.705);
+            margin-bottom: 2rem;
+
+            h3{
+                font-size: 1.5rem;
+            }
+            
+            p{
+                font-weight: bold;
+                margin-top: 9px;
+            }
+
+        }
+
+        .messageDiv, .mailDiv, .statusSection{
+            display: flex;
+            p{
+                margin-right: .5rem;
+            }
+        }
+
+        .statusSection {
+        display: flex;
+        border-bottom: 1px solid rgb(99, 99, 99);
+        padding-bottom: 1rem;
+            
+            p{
+                margin-right: .5rem;
+            }
+
+            .statusColor {
+                position: relative;
+                top: 6px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+
+            }
+        
+            .green {
+                background-color: green;
+            }
+            
+            .yellow {
+                background-color: yellow;
+            }
+            
+            .red {
+                background-color: red;
+            }
+
+        }
     }
 
-    .green {
-        background-color: green;
-    }
+    // .errands-main{
+    //     height: 100%;
+
+    // }
     
-    .yellow {
-        background-color: yellow;
-    }
-    
-    .red {
-        background-color: red;
-    }
-}
-
-// .errands-main{
-//     height: 100%;
-
-// }
-  
-// .container {
-//     width: 80%;
-//     margin: 3rem auto;
-// }
+    // .container {
+    //     width: 80%;
+    //     margin: 3rem auto;
+    // }
 
 
 
-.errand_subject {
-    font-size: 3rem;
-    font-weight: bold;
-   }
-
-.errand_message,
-.errand_email {
-font-size: .7em;
-}
-
-.errand_name,
-.errand_message,
-.errand_email {
-pointer-events: none;
-}
-
-.details {
-    width: 100%;
-    height: 60vh;
-    background-color: $details-bg;
-    border-radius: 1rem;
-    box-shadow: $errand-shadow;
-    margin-top: 1rem;
-    padding: 2rem;
-
-    h3 {
-        font-size: 1.6rem;
-        margin-bottom: 2.5rem;
+    .errand_subject {
+        font-size: 3rem;
+        font-weight: bold;
     }
 
-    p {
-        font-size: 1rem;
-        margin-bottom: .3rem;
+    .errand_message,
+    .errand_email {
+    font-size: .7em;
     }
-}
+
+    .errand_name,
+    .errand_message,
+    .errand_email {
+    pointer-events: none;
+    }
+
+    .details {
+        width: 100%;
+        height: 60vh;
+        background-color: $details-bg;
+        border-radius: 1rem;
+        box-shadow: $errand-shadow;
+        margin-top: 1rem;
+        padding: 2rem;
+
+        h3 {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: .3rem;
+        }
+    }
 
 
 
 
-.statusPending {
-    margin-left: 1rem;
-}
+    .statusPending {
+        margin-left: 1rem;
+    }
 
-.statusDone {
-    margin-left: 1rem;
+    .statusDone {
+        margin-left: 1rem;
+    }
 }
