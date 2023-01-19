@@ -16,10 +16,13 @@
         text-decoration: none;
         color: black;
         cursor: pointer;
-        margin-bottom: 6rem;
+        margin-bottom: 4rem;
+
+        p{
+            margin-bottom: 1rem;
+        }
 
         .cardHeader {
-
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid rgba(0, 0, 0, 0.705);
@@ -31,17 +34,58 @@
             
             p{
                 font-weight: bold;
+                margin-top: 9px;
+            }
+
+        }
+
+        .messageDiv, .mailDiv, .statusSection{
+            display: flex;
+            p{
+                margin-right: .5rem;
             }
         }
-    
-        p{
-            margin-bottom: 1rem;
+
+        .statusSection {
+            display: flex;
+            border-bottom: 1px solid rgb(99, 99, 99);
+            padding-bottom: 1rem;
+            
+            p{
+                margin-right: .5rem;
+            }
+
+            .statusColor {
+                position: relative;
+                top: 6px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+
+            }
+        
+            .green {
+                background-color: green;
+            }
+            
+            .yellow {
+                background-color: yellow;
+            }
+            
+            .red {
+                background-color: red;
+            }
+
+        
         }
+    
+       
 
         .details_form {
             display: flex;
             flex-direction: column;
-            padding-top: 2rem;
+            padding-top: 1rem;
 
             .textInput {
                 margin-top: .3rem;
@@ -58,29 +102,17 @@
                 }
             }
             
-            .statusSection {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-                margin-top: 10rem;
-                border-bottom: 1px solid rgb(99, 99, 99);
-
             
-            }
         
             .radioSection {
                 display: flex;
                 flex-direction: row;
-                align-items: center;
-                text-align: center;
+                h4{
+                    margin-top: 12px;
+                }
 
-                
-            
                 p{
-                    // padding-right: 1rem;
-                    text-align: center;
-                    align-items: center;
+                    margin-top: 12px;
                     padding-left: 1rem;
                     padding-right: .5rem;
                 }
