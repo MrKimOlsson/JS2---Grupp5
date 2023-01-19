@@ -7,10 +7,16 @@ const postal = document.querySelector('#postal');
 const checkbox = document.querySelector('#checkbox');
 const formContent = document.querySelector('.form-content')
 const output = document.querySelector('.text-out')
+const regInput = /^[A-Za-ö]+$/
 
 const validateUserfirstName = () => {
+
   if (firstName.value.length < 2) {
     firstName.classList.add('error');
+    return false;
+  }
+  else if (!regInput.test(firstName.value)) {
+    firstName.classList.add('error')
     return false;
 
   } else {
@@ -22,6 +28,11 @@ const validateUserfirstName = () => {
 const validateUserlastName = () => {
   if (lastName.value.length < 2) {
     lastName.classList.add('error');
+    return false;
+
+  }
+  else if (!regInput.test(lastName.value)) {
+    lastName.classList.add('error')
     return false;
 
 
