@@ -184,7 +184,6 @@ footer .footer-underlink ul li a:hover {
   background-size: cover;
   width: 100%;
   height: 30rem;
-  margin-bottom: 4rem;
 }
 .background h2 {
   font-size: 4.5em;
@@ -204,28 +203,29 @@ footer .footer-underlink ul li a:hover {
 }
 .content-row-one .row-one-box {
   width: 100%;
-  height: 34rem;
+  min-height: 23rem;
+  max-height: auto;
   align-self: center;
-  border-right: 1px solid black;
   margin: 1rem 4rem 0rem 4rem;
   padding-right: 1rem;
 }
-.content-row-one .row-one-box h4 {
+.content-row-one .row-one-box h3 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   padding-bottom: 1rem;
 }
 .content-row-one .row-one-box p {
   padding-top: 2rem;
+  text-align: center;
 }
-.content-row-one .row-one-box:last-of-type {
-  border: none;
-}
-.content-row-one .row-one-box-image {
-  width: 100%;
-  background-image: url(/images/plumbthree.avif);
-  background-size: contain;
+
+.row-image {
+  background-color: yellow;
+  background-image: url("/images/vvs.webp");
   background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
 }
 
 .content-row-two {
@@ -234,7 +234,6 @@ footer .footer-underlink ul li a:hover {
   background-color: rgb(53, 176, 233);
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
 }
 .content-row-two .row-two-box {
   width: 80%;
