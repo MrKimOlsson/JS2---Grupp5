@@ -2,8 +2,8 @@
 .conact-form-wrap {
     @include flex(column, center, none);
     max-width: 40em;
-    min-height: 45em;
-    max-height: 45em;
+    min-height: 35em;
+    max-height: 35em;
     box-shadow: $box-shadow;
     background-color: $conact-form-wrap-bg;
     padding: 1rem;
@@ -36,17 +36,13 @@
         label {
             font-weight: bold;
             font-size: 0.9rem;
-            
+
         }
     }
 
     .input-group2 {
         margin-bottom: 1rem;
         width: 100%;
-<<<<<<< HEAD
-=======
-
->>>>>>> Shayan
     }
 
     .input-group3 {
@@ -54,6 +50,7 @@
         margin-bottom: 1rem;
         font-size: 0.9rem;
     }
+
     .input-group4 {
         @include flex(row, flex-start, center);
         margin-bottom: 1rem;
@@ -119,42 +116,11 @@
     }
 }
 
-<<<<<<< HEAD
 .error {
     outline: 1px solid red;
     border-radius: .5rem;
 }
+
 .success {
     outline: none;
 }
-
-=======
-.thanks {
-
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    h3 {
-        color: rgb(0, 0, 0);
-        padding-top: 1rem;
-        text-shadow: 3px 3px 6px rgb(243, 238, 238);
-        font-size: 1.5rem;
-        animation: fadeIn 3s;
-    }
-
-    h4 {
-        font-size: 1rem;
-        padding-top: 1.2rem;
-        color: rgb(0, 0, 0);
-        text-shadow: 3px 3px 6px rgb(234, 230, 230);
-        animation: fadeIn 6s;
-    }
-}
->>>>>>> Shayan

@@ -349,8 +349,8 @@ footer .footer-underlink ul li a:hover {
   justify-content: center;
   align-items: none;
   max-width: 40em;
-  min-height: 45em;
-  max-height: 45em;
+  min-height: 35em;
+  max-height: 35em;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   background-color: #fff;
   padding: 1rem;
@@ -397,7 +397,6 @@ footer .footer-underlink ul li a:hover {
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
-<<<<<<< HEAD
 .conact-form-wrap .input-group4 {
   display: flex;
   flex-direction: row;
@@ -406,11 +405,8 @@ footer .footer-underlink ul li a:hover {
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
-.conact-form-wrap .radio-text, .conact-form-wrap .terms-text {
-=======
 .conact-form-wrap .radio-text,
 .conact-form-wrap .terms-text {
->>>>>>> Shayan
   padding-left: 0.25rem;
 }
 .conact-form-wrap .input-label {
@@ -460,7 +456,6 @@ footer .footer-underlink ul li a:hover {
   margin-bottom: 1rem;
 }
 
-<<<<<<< HEAD
 .error {
   outline: 1px solid red;
   border-radius: 0.5rem;
@@ -468,40 +463,6 @@ footer .footer-underlink ul li a:hover {
 
 .success {
   outline: none;
-=======
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.thanks h3 {
-  color: rgb(0, 0, 0);
-  padding-top: 1rem;
-  text-shadow: 3px 3px 6px rgb(243, 238, 238);
-  font-size: 1.5rem;
-  -webkit-animation: fadeIn 3s;
-          animation: fadeIn 3s;
-}
-.thanks h4 {
-  font-size: 1rem;
-  padding-top: 1.2rem;
-  color: rgb(0, 0, 0);
-  text-shadow: 3px 3px 6px rgb(234, 230, 230);
-  -webkit-animation: fadeIn 6s;
-          animation: fadeIn 6s;
->>>>>>> Shayan
 }
 
 .errands-main {
@@ -752,6 +713,14 @@ footer .footer-underlink ul li a:hover {
 .sign-up .error {
   border: 2px solid red;
   border-radius: 0.5rem;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes fadeIn {
   0% {
