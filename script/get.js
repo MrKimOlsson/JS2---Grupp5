@@ -168,8 +168,9 @@ const createCardElement = (post) => {
   mailDiv.appendChild(email)
   cardListErrands.appendChild(statusSection)
   statusSection.appendChild(statusHeading)
-  statusSection.appendChild(status)
   statusSection.appendChild(statusColor)
+  statusSection.appendChild(status)
+  
 
   // const subject = document.createElement('h3')
   // subject.innerText = post.subject

@@ -22,6 +22,7 @@ main {
 
 header {
   width: 100%;
+  border-bottom: 1px solid rgb(192, 192, 192);
 }
 header .up-header {
   width: 100%;
@@ -596,6 +597,7 @@ footer .footer-underlink ul li a:hover {
 #output .cardListErrands .statusSection .statusColor {
   position: relative;
   top: 6px;
+  margin-right: 0.5rem;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -661,7 +663,6 @@ footer .footer-underlink ul li a:hover {
   margin-top: 2rem;
   text-decoration: none;
   color: black;
-  cursor: pointer;
   margin-bottom: 4rem;
 }
 #output .cardDetails p {
@@ -689,7 +690,8 @@ footer .footer-underlink ul li a:hover {
 #output .cardDetails .statusSection {
   display: flex;
   border-bottom: 1px solid rgb(99, 99, 99);
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 3rem;
 }
 #output .cardDetails .statusSection p {
   margin-right: 0.5rem;
@@ -697,6 +699,7 @@ footer .footer-underlink ul li a:hover {
 #output .cardDetails .statusSection .statusColor {
   position: relative;
   top: 6px;
+  margin-right: 0.5rem;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -747,6 +750,7 @@ footer .footer-underlink ul li a:hover {
   background-color: rgb(21, 128, 0);
 }
 #output .cardDetails .cardButtons {
+  background-color: rgba(17, 26, 91, 0.137);
   height: 2rem;
   width: 100%;
   border-radius: 1rem;

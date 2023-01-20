@@ -62,7 +62,6 @@ const createCardElement = (post) => {
   // ADD DIV FOR STATUS
   const statusSection = document.createElement('div')
   statusSection.classList.add('statusSection');
-  
 
   const statusHeading = document.createElement('p')
   statusHeading.innerHTML = '<b>Status: </b>'
@@ -167,12 +166,33 @@ const createCardElement = (post) => {
   mailDiv.appendChild(email)
   cardDetails.appendChild(statusSection)
   statusSection.appendChild(statusHeading)
-  statusSection.appendChild(status)
   statusSection.appendChild(statusColor)
+  statusSection.appendChild(status)
+  
 
   // Loop through the comments array
   // For each comment:
   // Print comment message and date of each comment
+  // const comments = []
+  // const readyComments = []
+
+  // post.comments.forEach(comment => {
+  //   comments.push(comment.message)
+  // });
+
+
+  // const sortedComments = sortComment(comments);
+
+  // sortedComments.forEach(post => {
+  //   readyComments.push(post)
+  // })
+  // console.log("Comments array:")
+  // console.log(comments)
+  // console.log("ready comments:")
+  // console.log(readyComments)
+  // console.log("sorted comments:")
+  // console.log(sortedComments)
+
   post.comments.forEach(comment => {
     console.log("Comments: " + comment.message)
     cardDetails.innerHTML += `
@@ -286,6 +306,5 @@ const commentSubmit = e => {
   // Fetch method to change status ID
   fetch(COMMENT_URL, commentOptions)
   .then((commentRes) => console.log(commentRes)) 
-  e.target.comment.value == ""
-  e.target.email.value == ""  
+
 }
