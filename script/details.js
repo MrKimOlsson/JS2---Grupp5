@@ -2,6 +2,7 @@ const id = new URLSearchParams(window.location.search).get('id')
 const btnSubmitDetails = document.querySelector('#d-submit')
 const detailsForm = document.querySelector('#detailsForm')
 const errands = []
+const sortedComments = []
 let statusID = "";
 
 console.log(id)
@@ -20,7 +21,9 @@ const getPost = async () => {
 
     //Lägg till ett nytt element i output
     output.appendChild(createCardElement(post))
-}
+  }
+
+
 
 getPost()
 
@@ -173,14 +176,36 @@ const createCardElement = (post) => {
   // Loop through the comments array
   // For each comment:
   // Print comment message and date of each comment
+
+  // const newComments = sortComment(comment) 
+
+  // newComments.forEach(comment => {
+  //   sortedComments.push(comment)
+  // })
+
+  // const sortComment = (comment) => {
+  //   return comment.sort((a, b) => {
+  //     return new DataTransfer(b.created) - new DataTransfer(a.created);
+  //   });
+  // }
+
   post.comments.forEach(comment => {
+    const sortComment = () => {
+      return post.comments.sort((a, b) => {
+        return new Date(b.created) - new Date(a.created);
+      });
+    }
+
     console.log("Comments: " + comment.message)
     cardDetails.innerHTML += `
-      <p><b>Comment:</b> ${comment.message}</p><br>
-      <p><b>Time:</b> ${comment.created}</p><br>
-  `
-  });
+    <p><b>Comment:</b> ${comment.message}</p><br>
+    <p><b>Time:</b> ${comment.created}</p><br>
+    `
 
+    console.log(sortedComments)
+    sortedComments.push(comment)
+    sortComment();
+  })
   // Display radio section
   radioSection.innerHTML += `<h4>Change status:</h4>`
   radioSection.innerHTML += `<p>Not started:</p>`
@@ -212,6 +237,7 @@ const createCardElement = (post) => {
 const commentSubmit = e => {
   // prevent reload
   e.preventDefault()
+   
 
   console.log(e.target.comment.value);
   console.log(e.target);
@@ -286,6 +312,7 @@ const commentSubmit = e => {
   // Fetch method to change status ID
   fetch(COMMENT_URL, commentOptions)
   .then((commentRes) => console.log(commentRes)) 
-  e.target.comment.value == ""
-  e.target.email.value == ""  
+  e.target.comment.value == "";
+  e.target.email.value == ""; 
+
 }
