@@ -2,6 +2,7 @@ const id = new URLSearchParams(window.location.search).get('id')
 const btnSubmitDetails = document.querySelector('#d-submit')
 const detailsForm = document.querySelector('#detailsForm')
 const errands = []
+const sortedComments = []
 let statusID = "";
 
 console.log(id)
@@ -13,13 +14,23 @@ const output = document.querySelector('#output');
 
 const getPost = async () => {
   
-  const res = await fetch(BASE_URL + id)
-  const post = await res.json()
+  try{
+    const res = await fetch(BASE_URL + id)
+    const post = await res.json()
 
-  console.log(post)
+    console.log(post)
 
     //Lägg till ett nytt element i output
     output.appendChild(createCardElement(post))
+  }
+  catch(err) {
+    console.log(err);
+    output.innerHTML += `
+        <div class="card">
+            <h3>${err}</h3>
+        </div>
+        `
+  } 
 }
 
 getPost()
@@ -168,38 +179,43 @@ const createCardElement = (post) => {
   statusSection.appendChild(statusHeading)
   statusSection.appendChild(statusColor)
   statusSection.appendChild(status)
-  
 
-  // Loop through the comments array
-  // For each comment:
-  // Print comment message and date of each comment
-  // const comments = []
-  // const readyComments = []
 
+  // Old version
   // post.comments.forEach(comment => {
-  //   comments.push(comment.message)
-  // });
-
-
-  // const sortedComments = sortComment(comments);
-
-  // sortedComments.forEach(post => {
-  //   readyComments.push(post)
+  //   const sortComment = () => {
+  //     return post.comments.sort((a, b) => {
+  //       return new Date(b.created) - new Date(a.created);
+  //     });
+  //   }
+  //   sortComment();  
   // })
-  // console.log("Comments array:")
-  // console.log(comments)
-  // console.log("ready comments:")
-  // console.log(readyComments)
-  // console.log("sorted comments:")
-  // console.log(sortedComments)
 
+
+    // Sort comments function
+  post.comments.forEach(e => {
+    return post.comments.sort((a, b) => {
+    return new Date(b.created) - new Date(a.created);
+    })
+  })
+
+  console.log(comment)
+  // Push comments to a sorted array of comments
   post.comments.forEach(comment => {
-    console.log("Comments: " + comment.message)
+    
+    sortedComments.push(comment)
+
+  })
+
+//   Print out sorted comments array
+  sortedComments.forEach(data => {
+
     cardDetails.innerHTML += `
-      <p><b>Comment:</b> ${comment.message}</p><br>
-      <p><b>Time:</b> ${comment.created}</p><br>
-  `
-  });
+    <p><b>Comment:</b> ${data.message}</p><br>
+    <p>${data.created = new Date}</p><br>
+    `
+    // cardDetails.appendChild(commentTime);
+  })
 
   // Display radio section
   radioSection.innerHTML += `<h4>Change status:</h4>`

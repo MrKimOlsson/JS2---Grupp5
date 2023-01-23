@@ -1,38 +1,36 @@
-const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
-console.log(BASE_URL);
+const id = new URLSearchParams(window.location.search).get('id')
+const btnSubmitDetails = document.querySelector('#d-submit')
+const detailsForm = document.querySelector('#detailsForm')
 const errands = []
+const sortedComments = []
+let statusID = "";
+
+console.log(id)
+
+const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
+const COMMENT_URL = 'https://fnd22-shared.azurewebsites.net/api/Comments';
 
 const output = document.querySelector('#output');
 
-const getPosts = async () => {
-  const res = await fetch(BASE_URL)
-  const posts = await res.json()
-  const sortedPosts = sortPosts(posts);
+const getPost = async () => {
+  
+  const res = await fetch(BASE_URL + id)
+  const post = await res.json()
 
-  sortedPosts.forEach(post => {
-    errands.push(post)
+  console.log(post)
 
     //Lägg till ett nytt element i output
     output.appendChild(createCardElement(post))
-  })
+  }
 
-  console.log(posts)
-}
 
-const sortPosts = (posts) => {
-  return posts.sort((a, b) => {
-    return new Date(b.created) - new Date(a.created);
-  });
-}
 
-getPosts()
+getPost()
 
+// Create card to display post from DB
 const createCardElement = (post) => {
-  const cardListErrands = document.createElement('a')
-  cardListErrands.className = 'cardListErrands'
-
-  // card.href = `details.html?id=${post.id}`
-  cardListErrands.setAttribute('href', `details.html?id=${post.id}`)
+  const cardDetails = document.createElement('div')
+  cardDetails.className = 'cardDetails'
 
   const cardHeader = document.createElement('div')
   cardHeader.className = 'cardHeader'
@@ -63,16 +61,20 @@ const createCardElement = (post) => {
   const email = document.createElement('p')
   email.innerText = post.email
 
+
   // ADD DIV FOR STATUS
   const statusSection = document.createElement('div')
   statusSection.classList.add('statusSection');
   
+
   const statusHeading = document.createElement('p')
   statusHeading.innerHTML = '<b>Status: </b>'
 
   const status = document.createElement('p')
   status.classList.add('errand_status')
   status.innerText = post.status.statusName
+
+  
 
   // Status color
   const statusColor = document.createElement('div')
@@ -88,7 +90,7 @@ const createCardElement = (post) => {
     statusColor.classList.add('red')
   }
     
-  cardListErrands.appendChild(statusSection)
+  cardDetails.appendChild(statusSection)
   statusSection.appendChild(statusColor)
   // ADD INPUT FORM TO DETAILS CARD
   const detailsForm = document.createElement('form')
@@ -157,24 +159,147 @@ const createCardElement = (post) => {
 
 
   // Display everything on the card
-  cardListErrands.appendChild(cardHeader)
+  cardDetails.appendChild(cardHeader)
   cardHeader.appendChild(subject)
   cardHeader.appendChild(time)
-  cardListErrands.appendChild(messageDiv)
+  cardDetails.appendChild(messageDiv)
   messageDiv.appendChild(messageHeading)
   messageDiv.appendChild(message)
-  cardListErrands.appendChild(mailDiv)
+  cardDetails.appendChild(mailDiv)
   mailDiv.appendChild(mailHeading)
   mailDiv.appendChild(email)
-  cardListErrands.appendChild(statusSection)
+  cardDetails.appendChild(statusSection)
   statusSection.appendChild(statusHeading)
-  statusSection.appendChild(statusColor)
   statusSection.appendChild(status)
+  statusSection.appendChild(statusColor)
 
-  return cardListErrands
+//   Sort comments function
+  post.comments.forEach(comment => {
+    const sortComment = () => {
+      return post.comments.sort((a, b) => {
+        return new Date(b.created) - new Date(a.created);
+      });
+    }
+    sortedComments.push(comment)
+    sortComment();    
+  })
+
+//   Print out sorted comments array
+  sortedComments.forEach(data => {
+    console.log("Comments: " + message)
+    cardDetails.innerHTML += `
+    <p><b>Comment:</b> ${data.message}</p><br>
+    <p><b>Time:</b> ${data.created}</p><br>
+    `
+  })
+
+  console.log("sortedComments array:")
+  console.log(sortedComments)
+
+  // Display radio section
+  radioSection.innerHTML += `<h4>Change status:</h4>`
+  radioSection.innerHTML += `<p>Not started:</p>`
+  radioSection.appendChild(statusNotStarted)
+  radioSection.innerHTML += `<p>Pending:</p>`
+  radioSection.appendChild(statusPending)
+  radioSection.innerHTML += `<p>Done:</p>`
+  radioSection.appendChild(statusDone)
+
+  // Add heading, comment input, radioSection & submit btn to detailsForm
+  detailsForm.innerHTML += `<h4>Comment:</h4>`
+  detailsForm.appendChild(comment)
+  detailsForm.innerHTML += `<h5>Email:</h5>`
+  detailsForm.appendChild(commentEmail)
+  detailsForm.appendChild(radioSection)
+  detailsForm.appendChild(detailsSubmit)
+  
+  // Add detailsForm to card
+  cardDetails.appendChild(detailsForm)
+  cardDetails.appendChild(btnCloseDetails)
+
+  // Add event listener to the comment form
+  // btnCloseDetails.addEventListener('click', href="errands.html")
+  detailsForm.addEventListener('submit', commentSubmit)
+  return cardDetails
 }
 
+// Handle submit
+const commentSubmit = e => {
+  // prevent reload
+  e.preventDefault()
+   
 
+  console.log(e.target.comment.value);
+  console.log(e.target);
 
+  // declair variables
+  let statusID = 0;
+  let comment = "";
+  
+  // Check if there is a comment to submit
+  if(e.target.comment.value == "") {
+    console.log("No comment to submit - Add a comment")
+  }
 
+  console.log("Comment: " + e.target.comment.value)
+  comment = e.target.comment.value
+  console.log(comment);
 
+  // Check what to change status ID into
+  // if status: not started
+  if(e.target.notStarted.checked){
+    console.log("Set status: not started")
+    statusID = 1;
+  }
+  // if status: pending
+  else if(e.target.pending.checked){
+    console.log("Set status: pending")
+    statusID = 2;
+  }
+  // if status done
+  else if(e.target.done.checked){
+    console.log("Set status: done")
+    statusID = 3;
+  }
+  
+  // Info to change status ID
+  let changeID = {
+    id: id,
+    statusID: statusID,
+  }
+
+  // Options for fetch method
+  let options = {
+    method: "PUT",
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(changeID)
+  }
+
+  // Fetch method to change status ID
+  fetch(BASE_URL+id, options)
+  .then((response) => response.json())
+
+  // COMMENT
+
+  // Comment post payload - CONTENT TO POST
+  const addComment = {
+    caseID: id,
+    email: document.querySelector('#commentEmail').value,
+    message: comment,
+  }
+
+  // Options for fetch method
+  let commentOptions = {
+    method: "POST",
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(addComment)
+  }
+
+  // Fetch method to change status ID
+  fetch(COMMENT_URL, commentOptions)
+  .then((commentRes) => console.log(commentRes)) 
+}

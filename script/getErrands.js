@@ -153,45 +153,6 @@ const getData = async (id) => {
               listErrands()
             })
 
-
-            
-
-
-
-            // Detaljerad info ska skrivas ut i en ny html sida.
-
-            // Skapa ett formulär som innehåller kommentar och radio button delen
-            // och samlar kommentar och radio button value on submit
-            // Och postar sedan till DB
-
-            // How to:
-            // create form and submit button using createElement
-            // add text input and radio buttons and submit button using appendChild to form
-            // On submit, check status of radio buttons
-            // If statement to determin what to change statusID into
-            // Then post the changes to the DB
-            // 
-            
-            // Change status function FUNKAR INTE!!!!
-            // let changeStatus = e =>{
-            //   if(statusPending.checked == true){
-            //     console.log("Change status to pending")
-            //   }
-            //   else if(statusDone.checked == true){
-            //     console.log("Change status to done")
-            //   }
-            //   else if(statusNotStarted == true){
-            //     console.log("Change status to not started")
-            //   }
-            // }
-
-            // statusNotStarted.addEventListener('checked', changeStatus);
-            // statusPending.addEventListener('checked', changeStatus);
-            // statusDone.addEventListener('checked', changeStatus);
-            
-
-        // }
-
       }
     // If can´t fetch by ID = Catch error and output error message
     catch(err) {
