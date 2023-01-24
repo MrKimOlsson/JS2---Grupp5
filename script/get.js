@@ -21,6 +21,7 @@ const getPosts = async () => {
     // Skickar posts genom sortPosts funktionen och sparar i errands arrayen
     errands = sortPosts(posts);
 
+    console.log(errands)
     // För varje post i sortedPosts
     errands.forEach(post => {
  

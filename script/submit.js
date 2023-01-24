@@ -161,6 +161,14 @@ const handleSubmit = e => {
   email.value = "";
   message.value = "";
 
+  // Reloads the page after the comment 
+  setTimeout(() => {
+    window.location.replace("errands.html")
+  }, "400")
+
+  setTimeout();
+  
+
 
 
 // Catch error - output error message

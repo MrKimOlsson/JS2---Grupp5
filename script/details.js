@@ -288,47 +288,59 @@ const commentSubmit = e => {
   // Fetch method to change status ID
   try{
     fetch(BASE_URL+id, options)
-  .then((response) => response.json())
+    .then((response) => response.json())
 
   // COMMENT
 
-  // Comment post payload - CONTENT TO POST
-  const addComment = {
-    caseID: id,
-    email: document.querySelector('#commentEmail').value,
-    message: comment,
-  }
+    // Comment post payload - CONTENT TO POST
+    const addComment = {
+      caseID: id,
+      email: document.querySelector('#commentEmail').value,
+      message: comment,
+    }
 
-  // Options for fetch method
-  let commentOptions = {
-    method: "POST",
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(addComment)
-  }
+    // Options for fetch method
+    let commentOptions = {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(addComment)
+    }
 
-  // Fetch method to change status ID
-  try{
-    fetch(COMMENT_URL, commentOptions)
-    .then((commentRes) => console.log(commentRes))
+    // Fetch method to change status ID
+    try{
+      fetch(COMMENT_URL, commentOptions)
+      .then((commentRes) => console.log(commentRes))
 
-    document.querySelector('.textInput').value = "";
-    document.querySelector('#commentEmail').value = "";
+      document.querySelector('.textInput').value = "";
+      document.querySelector('#commentEmail').value = "";
 
-  } 
+      // Reloads the page after the comment 
+      setTimeout(() => {
+        window.location.reload();
+      }, "400")
+
+      setTimeout();
+        
+      
+    } 
+
+    // Catch error - output error message
+    catch(err) {
+      console.log(err);
+      output.innerHTML += `
+          <div class="card">
+              <h3>${err}</h3>
+          </div>
+          `
+    } 
+    
+   
+  
 
   // Catch error - output error message
-  catch(err) {
-    console.log(err);
-    output.innerHTML += `
-        <div class="card">
-            <h3>${err}</h3>
-        </div>
-        `
-  }   
   }
-  // Catch error - output error message
   catch(err) {
     console.log(err);
     output.innerHTML += `
