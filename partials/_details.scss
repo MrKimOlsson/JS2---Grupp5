@@ -15,7 +15,6 @@
         margin-top: 2rem;
         text-decoration: none;
         color: black;
-        cursor: pointer;
         margin-bottom: 4rem;
 
         p{
@@ -41,6 +40,7 @@
 
         .messageDiv, .mailDiv, .statusSection{
             display: flex;
+            
             p{
                 margin-right: .5rem;
             }
@@ -49,7 +49,8 @@
         .statusSection {
             display: flex;
             border-bottom: 1px solid rgb(99, 99, 99);
-            padding-bottom: 1rem;
+            padding-bottom: .5rem;
+            margin-bottom: 3rem;
             
             p{
                 margin-right: .5rem;
@@ -58,6 +59,7 @@
             .statusColor {
                 position: relative;
                 top: 6px;
+                margin-right: .5rem;
                 width: 12px;
                 height: 12px;
                 border-radius: 50%;
@@ -79,8 +81,7 @@
 
         
         }
-    
-       
+
 
         .details_form {
             display: flex;
@@ -131,6 +132,7 @@
         
 
         .cardButtons{
+            background-color: rgba(17, 26, 91, 0.137);
             height: 2rem;
             width: 100%;
             border-radius: 1rem;

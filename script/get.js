@@ -1,32 +1,50 @@
 const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
 console.log(BASE_URL);
-const errands = []
+// const errands = []
 
 const output = document.querySelector('#output');
 
 const getPosts = async () => {
-  const res = await fetch(BASE_URL)
-  const posts = await res.json()
-  const sortedPosts = sortPosts(posts);
+  
+  // Try to fetch
+  try {
+    const res = await fetch(BASE_URL)
+    const posts = await res.json()
+    console.log(res)
 
-  sortedPosts.forEach(post => {
-    errands.push(post)
+    // Function to sort posts
+    const sortPosts = (posts) => {
+      return posts.sort((a, b) => {
+        return new Date(b.created) - new Date(a.created);
+      });
+    }
+    // Skickar posts genom sortPosts funktionen och sparar i sortedPosts arrayen
+    const sortedPosts = sortPosts(posts);
 
-    //Lägg till ett nytt element i output
-    output.appendChild(createCardElement(post))
-  })
+    // För varje post i sortedPosts
+    sortedPosts.forEach(post => {
+ 
+      //Skicka med posten och skapa ett nytt card element som är child till output
+      output.appendChild(createCardElement(post))
+    })
+  }
 
-  console.log(posts)
-}
-
-const sortPosts = (posts) => {
-  return posts.sort((a, b) => {
-    return new Date(b.created) - new Date(a.created);
-  });
+  // Catch error - output error message
+  catch(err) {
+    console.log(err);
+    output.innerHTML += `
+        <div class="card">
+            <h3>${err}</h3>
+        </div>
+        `
+  }   
 }
 
 getPosts()
 
+
+
+// Create a new card element with the info from each post of sortedPosts
 const createCardElement = (post) => {
   const cardListErrands = document.createElement('a')
   cardListErrands.className = 'cardListErrands'
@@ -168,45 +186,8 @@ const createCardElement = (post) => {
   mailDiv.appendChild(email)
   cardListErrands.appendChild(statusSection)
   statusSection.appendChild(statusHeading)
-  statusSection.appendChild(status)
   statusSection.appendChild(statusColor)
-
-  // const subject = document.createElement('h3')
-  // subject.innerText = post.subject
-
-  // const message = document.createElement('p')
-  // message.innerText = post.message
-
-  // const email = document.createElement('p')
-  // email.innerText = post.email
-
-  // const status = document.createElement('p')
-  // status.classList.add('errand_status')
-  // status.innerText = post.status.statusName
-
-  // let statusColor = document.createElement('div')
-  // statusColor.classList.add('statusColor')
-
-  // if (post.statusId == 3) {
-  //   statusColor.classList.add('green')
-  // }
-  // else if (post.statusId == 2) {
-  //   statusColor.classList.add('yellow')
-  // }
-  // else {
-  //   statusColor.classList.add('red')
-  // }
-
-  // const created = document.createElement('p');
-  // const date = new Date(post.created);
-  // created.innerText = date.toLocaleString();
-
-  // card.appendChild(subject)
-  // card.appendChild(message)
-  // card.appendChild(email)
-  // card.appendChild(status)
-  // card.appendChild(statusColor)
-  // card.appendChild(created);
+  statusSection.appendChild(status)
 
   return cardListErrands
 }
