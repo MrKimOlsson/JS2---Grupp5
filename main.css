@@ -62,32 +62,31 @@ header .down-header {
 header .down-header .company-name {
   width: auto;
   height: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 header .down-header .company-name h1 {
   font-size: 3rem;
   margin-top: 1rem;
 }
 header .down-header .down-navbar {
-  width: 20rem;
-}
-header .down-header .down-navbar ul {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 header .down-header .down-navbar ul li {
-  list-style: none;
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
   align-self: center;
   display: inline;
-  padding-left: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 header .down-header .down-navbar ul li a {
   text-decoration: none;
   color: black;
   font-size: 2rem;
 }
-header .down-header .down-navbar ul li a:hover {
+header .down-header .down-navbar ul li ahover {
   text-decoration: underline;
 }
 header .down-header .down-navbar ul li .active {
