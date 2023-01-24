@@ -180,18 +180,6 @@ const createCardElement = (post) => {
   statusSection.appendChild(statusColor)
   statusSection.appendChild(status)
 
-
-  // Old version
-  // post.comments.forEach(comment => {
-  //   const sortComment = () => {
-  //     return post.comments.sort((a, b) => {
-  //       return new Date(b.created) - new Date(a.created);
-  //     });
-  //   }
-  //   sortComment();  
-  // })
-
-
     // Sort comments function
   post.comments.forEach(e => {
     return post.comments.sort((a, b) => {
@@ -298,7 +286,8 @@ const commentSubmit = e => {
   }
 
   // Fetch method to change status ID
-  fetch(BASE_URL+id, options)
+  try{
+    fetch(BASE_URL+id, options)
   .then((response) => response.json())
 
   // COMMENT
@@ -320,7 +309,34 @@ const commentSubmit = e => {
   }
 
   // Fetch method to change status ID
-  fetch(COMMENT_URL, commentOptions)
-  .then((commentRes) => console.log(commentRes)) 
+  try{
+    fetch(COMMENT_URL, commentOptions)
+    .then((commentRes) => console.log(commentRes))
+
+    document.querySelector('.textInput').value = "";
+    document.querySelector('#commentEmail').value = "";
+
+  } 
+
+  // Catch error - output error message
+  catch(err) {
+    console.log(err);
+    output.innerHTML += `
+        <div class="card">
+            <h3>${err}</h3>
+        </div>
+        `
+  }   
+  }
+  // Catch error - output error message
+  catch(err) {
+    console.log(err);
+    output.innerHTML += `
+        <div class="card">
+            <h3>${err}</h3>
+        </div>
+        `
+  }   
+ 
 
 }
