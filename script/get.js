@@ -1,6 +1,6 @@
 const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
 console.log(BASE_URL);
-// const errands = []
+let errands = []
 
 const output = document.querySelector('#output');
 
@@ -18,11 +18,12 @@ const getPosts = async () => {
         return new Date(b.created) - new Date(a.created);
       });
     }
-    // Skickar posts genom sortPosts funktionen och sparar i sortedPosts arrayen
-    const sortedPosts = sortPosts(posts);
+    // Skickar posts genom sortPosts funktionen och sparar i errands arrayen
+    errands = sortPosts(posts);
 
+    console.log(errands)
     // För varje post i sortedPosts
-    sortedPosts.forEach(post => {
+    errands.forEach(post => {
  
       //Skicka med posten och skapa ett nytt card element som är child till output
       output.appendChild(createCardElement(post))
@@ -41,7 +42,6 @@ const getPosts = async () => {
 }
 
 getPosts()
-
 
 
 // Create a new card element with the info from each post of sortedPosts
