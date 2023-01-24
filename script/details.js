@@ -1,7 +1,7 @@
 const id = new URLSearchParams(window.location.search).get('id')
 const btnSubmitDetails = document.querySelector('#d-submit')
 const detailsForm = document.querySelector('#detailsForm')
-const errands = []
+// const errands = []
 const sortedComments = []
 let statusID = "";
 

@@ -1,32 +1,50 @@
 const BASE_URL = 'https://fnd22-shared.azurewebsites.net/api/Cases/';
 console.log(BASE_URL);
-const errands = []
+// const errands = []
 
 const output = document.querySelector('#output');
 
 const getPosts = async () => {
-  const res = await fetch(BASE_URL)
-  const posts = await res.json()
-  const sortedPosts = sortPosts(posts);
+  
+  // Try to fetch
+  try {
+    const res = await fetch(BASE_URL)
+    const posts = await res.json()
+    console.log(res)
 
-  sortedPosts.forEach(post => {
-    errands.push(post)
+    // Function to sort posts
+    const sortPosts = (posts) => {
+      return posts.sort((a, b) => {
+        return new Date(b.created) - new Date(a.created);
+      });
+    }
+    // Skickar posts genom sortPosts funktionen och sparar i sortedPosts arrayen
+    const sortedPosts = sortPosts(posts);
 
-    //Lägg till ett nytt element i output
-    output.appendChild(createCardElement(post))
-  })
+    // För varje post i sortedPosts
+    sortedPosts.forEach(post => {
+ 
+      //Skicka med posten och skapa ett nytt card element som är child till output
+      output.appendChild(createCardElement(post))
+    })
+  }
 
-  console.log(posts)
-}
-
-const sortPosts = (posts) => {
-  return posts.sort((a, b) => {
-    return new Date(b.created) - new Date(a.created);
-  });
+  // Catch error - output error message
+  catch(err) {
+    console.log(err);
+    output.innerHTML += `
+        <div class="card">
+            <h3>${err}</h3>
+        </div>
+        `
+  }   
 }
 
 getPosts()
 
+
+
+// Create a new card element with the info from each post of sortedPosts
 const createCardElement = (post) => {
   const cardListErrands = document.createElement('a')
   cardListErrands.className = 'cardListErrands'
