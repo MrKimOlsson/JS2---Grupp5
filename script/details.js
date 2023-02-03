@@ -200,7 +200,7 @@ const createCardElement = (post) => {
 
     cardDetails.innerHTML += `
     <p><b>Comment:</b> ${data.message}</p><br>
-    <p>${data.created = new Date}</p><br>
+    <p>${new Date(data.created)}</p><br>
     `
     // cardDetails.appendChild(commentTime);
   })
@@ -336,9 +336,6 @@ const commentSubmit = e => {
           `
     } 
     
-   
-  
-
   // Catch error - output error message
   }
   catch(err) {
