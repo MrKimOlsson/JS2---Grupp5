@@ -1,7 +1,6 @@
 const id = new URLSearchParams(window.location.search).get('id')
 const btnSubmitDetails = document.querySelector('#d-submit')
 const detailsForm = document.querySelector('#detailsForm')
-// const errands = []
 const sortedComments = []
 let statusID = "";
 
@@ -12,16 +11,22 @@ const COMMENT_URL = 'https://fnd22-shared.azurewebsites.net/api/Comments';
 
 const output = document.querySelector('#output');
 
+// ___________________________________________________________Create details card______________________________________________________________
+
 const getPost = async () => {
   
   try{
     const res = await fetch(BASE_URL + id)
     const post = await res.json()
 
-    console.log(post)
-
-    //Lägg till ett nytt element i output
-    output.appendChild(createCardElement(post))
+    if(res.ok){
+      console.log(res)
+      //Lägg till ett nytt element i output
+      output.appendChild(createCardElement(post))
+    }
+    else{
+      console.log("Something went wrong..")
+    }
   }
   catch(err) {
     console.log(err);
@@ -32,10 +37,10 @@ const getPost = async () => {
         `
   } 
 }
-
 getPost()
 
-// Create card to display post from DB
+// ___________________________________________________________Create details card______________________________________________________________
+
 const createCardElement = (post) => {
   const cardDetails = document.createElement('div')
   cardDetails.className = 'cardDetails'
@@ -187,22 +192,20 @@ const createCardElement = (post) => {
     })
   })
 
-  console.log(comment)
   // Push comments to a sorted array of comments
   post.comments.forEach(comment => {
-    
     sortedComments.push(comment)
-
   })
 
 //   Print out sorted comments array
   sortedComments.forEach(data => {
 
     cardDetails.innerHTML += `
-    <p><b>Comment:</b> ${data.message}</p><br>
-    <p>${new Date(data.created)}</p><br>
+    <p><b>Comment:</b> ${data.message}</p>
+    <p><b>Email:</b> ${data.email}</p>
+    <p>${new Date(data.created)}</p>
     `
-    // cardDetails.appendChild(commentTime);
+
   })
 
   // Display radio section
@@ -232,6 +235,8 @@ const createCardElement = (post) => {
   return cardDetails
 }
 
+
+// ___________________________________________________________Handle submit______________________________________________________________
 // Handle submit
 const commentSubmit = e => {
   // prevent reload
@@ -242,16 +247,13 @@ const commentSubmit = e => {
 
   // declair variables
   let statusID = 0;
-  let comment = "";
-  
-  // Check if there is a comment to submit
-  if(e.target.comment.value == "") {
-    console.log("No comment to submit - Add a comment")
-  }
+  // let comment = "";
 
-  console.log("Comment: " + e.target.comment.value)
+  console.log(commentEmail)
+  commentEmail = e.target.commentEmail.value
+  console.log(commentEmail)
   comment = e.target.comment.value
-  console.log(comment);
+    
 
   // Check what to change status ID into
   // if status: not started
@@ -270,6 +272,8 @@ const commentSubmit = e => {
     statusID = 3;
   }
   
+// __________________________________________________________Change ID______________________________________________________________
+
   // Info to change status ID
   let changeID = {
     id: id,
@@ -285,12 +289,13 @@ const commentSubmit = e => {
     body: JSON.stringify(changeID)
   }
 
-  // Fetch method to change status ID
+  // Try to change status id
   try{
     fetch(BASE_URL+id, options)
-    .then((response) => response.json())
+    .then((idRes) => console.log(idRes))
 
-  // COMMENT
+    // __________________________________________________________Post comment______________________________________________________________
+    // If there is a comment it will be added aswell, if not - only status will change (reason for nesting)
 
     // Comment post payload - CONTENT TO POST
     const addComment = {
@@ -308,35 +313,44 @@ const commentSubmit = e => {
       body: JSON.stringify(addComment)
     }
 
-    // Fetch method to change status ID
-    try{
-      fetch(COMMENT_URL, commentOptions)
-      .then((commentRes) => console.log(commentRes))
+    if(comment == "") {
+      console.log("No comment to submit - Will only change status")
+      return
+    }else if(commentEmail == "") {
+      console.log("Add a email adress to submit comment - Will only change status")
+    }
+    else{
+      // If status change is successful
+      // Try to add comment
+      try{
+        fetch(COMMENT_URL, commentOptions)
+        .then((commentRes) => console.log(commentRes))
 
-      document.querySelector('.textInput').value = "";
-      document.querySelector('#commentEmail').value = "";
+        document.querySelector('.textInput').value = "";
+        document.querySelector('#commentEmail').value = "";
 
-      // Reloads the page after the comment 
-      setTimeout(() => {
-        window.location.reload();
-      }, "400")
+        // Reloads the page after the comment to show the comment just added
+        // Remove to see response (reload necessary to see the status change on DOM)
+        setTimeout(() => {
+          window.location.reload();
+        }, "400")
 
-      setTimeout();
-        
-      
-    } 
+        setTimeout();
 
-    // Catch error - output error message
-    catch(err) {
-      console.log(err);
-      output.innerHTML += `
-          <div class="card">
-              <h3>${err}</h3>
-          </div>
-          `
-    } 
-    
-  // Catch error - output error message
+      } 
+
+      // Catch error - output error message
+      catch(err) {
+        console.log(err);
+        output.innerHTML += `
+            <div class="card">
+                <h3>${err}</h3>
+            </div>
+            `
+      } 
+    }
+
+   // Catch error - output error message
   }
   catch(err) {
     console.log(err);
@@ -346,6 +360,5 @@ const commentSubmit = e => {
         </div>
         `
   }   
- 
 
 }
