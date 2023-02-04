@@ -203,7 +203,7 @@ const createCardElement = (post) => {
     cardDetails.innerHTML += `
     <p><b>Comment:</b> ${data.message}</p>
     <p><b>Email:</b> ${data.email}</p>
-    <p>${new Date(data.created)}</p>
+    <p>${new Date(data.created)}</p><br>
     `
 
   })
