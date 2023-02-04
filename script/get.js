@@ -191,8 +191,3 @@ const createCardElement = (post) => {
 
   return cardListErrands
 }
-
-
-
-
-

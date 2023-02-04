@@ -21,7 +21,7 @@ const handleSubmit = e => {
   const radioBtn2 = document.querySelector('.radioBtn2');
   const radioBtn3 = document.querySelector('.radioBtn3');
   const checkbox = document.querySelector('#checkbox');
-  let letters = /^[A-Za-z]+$/;
+  let letters = /^[A-Za-z0-9_ ]+$/;
   let emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const setSuccess = (input) => {
@@ -50,7 +50,6 @@ const handleSubmit = e => {
 
   const validateEmail = () => {
     if (!email.value.match(emailRegex) || email.value === '') {
-        // console.log('email tom')
         return setError(email.parentElement)
     }
     else {
@@ -61,7 +60,6 @@ const handleSubmit = e => {
 
   const validateMessage = () => {
   if (message.value === '') {
-      // console.log('message funkade ej')
       return setError(message.parentElement)
 
   } else {
@@ -161,16 +159,13 @@ const handleSubmit = e => {
   email.value = "";
   message.value = "";
 
-  // Reloads the page after the comment 
+  // Moves the user to the errands page after submit (just for to make it easier to see what is happening right away)
   setTimeout(() => {
     window.location.replace("errands.html")
   }, "400")
 
   setTimeout();
   
-
-
-
 // Catch error - output error message
 }
 catch(err) {
@@ -183,7 +178,5 @@ catch(err) {
 }   
 }
 
-
-  
   form.addEventListener('submit', handleSubmit) 
   
